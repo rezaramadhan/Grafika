@@ -148,7 +148,22 @@ class FrameBuffer {
 				flood_fill(x-1,y,r,g,b);
 				flood_fill(x,y+1,r,g,b);
 				flood_fill(x,y-1,r,g,b);
+				
 			}
+			
+		}
+
+		void reset_fill(int x, int y, int r, int g, int b) {
+			if (!(is_black(x,y))) {
+				put_pixel(x,y,r,g,b);
+				//usleep(1000);
+				reset_fill(x+1,y,r,g,b);
+				reset_fill(x-1,y,r,g,b);
+				reset_fill(x,y+1,r,g,b);
+				reset_fill(x,y-1,r,g,b);
+				
+			}
+			
 		}
 };
 
