@@ -96,6 +96,17 @@ class FrameBuffer {
 			}
 			return 1;
 		}
+		void flood_fill(int x, int y, int r, int g, int b) {
+			if ((is_black(x,y))) {
+				put_pixel(x,y,r,g,b);
+				//usleep(1000);
+				flood_fill(x+1,y,r,g,b);
+				flood_fill(x-1,y,r,g,b);
+				flood_fill(x,y+1,r,g,b);
+				flood_fill(x,y-1,r,g,b);
+
+			}
+		}
 
 		void draw_line(float x1, float y1,float x2, float y2, int r, int g, int b)
 		{
@@ -140,19 +151,6 @@ class FrameBuffer {
 			}
 		}
 
-		void flood_fill(int x, int y, int r, int g, int b) {
-			if ((is_black(x,y))) {
-				put_pixel(x,y,r,g,b);
-				//usleep(1000);
-				flood_fill(x+1,y,r,g,b);
-				flood_fill(x-1,y,r,g,b);
-				flood_fill(x,y+1,r,g,b);
-				flood_fill(x,y-1,r,g,b);
-				
-			}
-			
-		}
-
 		void reset_fill(int x, int y, int r, int g, int b) {
 			if (!(is_black(x,y))) {
 				put_pixel(x,y,r,g,b);
@@ -161,9 +159,9 @@ class FrameBuffer {
 				reset_fill(x-1,y,r,g,b);
 				reset_fill(x,y+1,r,g,b);
 				reset_fill(x,y-1,r,g,b);
-				
+
 			}
-			
+
 		}
 };
 
