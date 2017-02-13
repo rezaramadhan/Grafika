@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <math.h>
 #include <linux/fb.h>
 #include <sys/mman.h>
 #include <sys/ioctl.h>
@@ -162,6 +163,50 @@ class FrameBuffer {
 
 			}
 
+		}
+
+		void draw_circle(int xc, int yc, int radius, int r, int g, int b) {
+			int x=0;
+			int y=radius;
+			put_pixel(xc+x,yc-y,r,g,b);
+
+			int p=3-(2*r);
+
+			for(x=0;x<=y;x++) {
+				if (p<0) {
+					y=y;
+					p=(p+(4*x)+6);
+				} else {
+					y=y-1;
+					p=p+((4*(x-y)+10));
+				}
+
+				put_pixel(xc+x,yc-y,r,g,b);
+				put_pixel(xc-x,yc-y,r,g,b);
+				put_pixel(xc+x,yc+y,r,g,b);
+				put_pixel(xc-x,yc+y,r,g,b);
+				put_pixel(xc+y,yc-x,r,g,b);
+				put_pixel(xc-y,yc-x,r,g,b);
+				put_pixel(xc+y,yc+x,r,g,b);
+				put_pixel(xc-y,yc+x,r,g,b);
+			}
+		}
+
+		void rotate_point(int *x, int *y, int angle, int rotation_center_x, int rotation_center_y) {
+			//convert angle to radians
+			double rad_angle = angle * M_PI / 180;
+			printf("%f\n",rad_angle);
+			//translate to origin
+			double dx = *x - rotation_center_x;
+			double dy = *y - rotation_center_y;
+			printf("%f %f\n", dx,dy);
+			//rotate point
+			double new_dx = (dx) * cos(rad_angle) - (dy) * sin(rad_angle);
+			double new_dy = (dx) * sin(rad_angle) + (dy) * cos(rad_angle);
+			// printf("%f %f\n", dx,dy);
+
+			*x = (int)round(new_dx) + rotation_center_x;
+			*y = (int)round(new_dy) + rotation_center_y;
 		}
 };
 
