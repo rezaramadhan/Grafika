@@ -212,6 +212,7 @@ class FrameBuffer {
 		void drawBan1(int xc, int yc, int radius, int r, int g, int b) {
 			draw_circle(xc,yc,radius,r,g,b);
 			flood_fill(xc,yc,100,100,0);
+			draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
 		}
 
 		void drawBan(int xc, int yc, int xl1, int yl1, int xl2, int yl2, int radius, int r, int g, int b) {
