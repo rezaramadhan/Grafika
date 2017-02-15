@@ -462,6 +462,47 @@ void bounce() {
 	}
 }
 
+void rotating() {
+	//main circle center
+	int x = 500 ;
+	int y = 300 ;
+	
+	//point for line
+	int xl1;
+	int yl1;
+	int xl2;
+	int yl2;
+	xl1 = x-25;
+	xl2 = x+25;
+	yl1 = y;
+	yl2 = y;
+
+	//ini iseng aja
+	int x2 = 550 ;
+	int y2 = 300 ;
+	
+	while(1){
+		//radius = 25
+		fb->drawBan(x,y,xl1,yl1,xl2,yl2,25,100,0,0);
+		
+		//lanjutan iseng-iseng
+		fb->draw_circle(x2,y2,5,0,90,0);
+		fb->flood_fill(x2,y2,0,90,0);
+		
+		//angle = 30
+		fb->rotate_point(&xl1,&yl1,30,x,y);
+		fb->rotate_point(&xl2,&yl2,30,x,y);
+		
+		usleep(100000);
+		fb->reset_fill(x,y,0,0,0);
+		
+		//lanjutan iseng-iseng
+		fb->reset_fill(x2,y2,0,0,0);
+		fb->rotate_point(&x2,&y2,30,x,y);
+		
+	}
+}
+
 int main() {
 
 	fb = new FrameBuffer;
