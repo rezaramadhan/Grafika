@@ -208,6 +208,19 @@ class FrameBuffer {
 			*x = (int)round(new_dx) + rotation_center_x;
 			*y = (int)round(new_dy) + rotation_center_y;
 		}
+	
+		void drawBan1(int xc, int yc, int radius, int r, int g, int b) {
+			draw_circle(xc,yc,radius,r,g,b);
+			flood_fill(xc,yc,100,100,0);
+		}
+
+		void drawBan(int xc, int yc, int xl1, int yl1, int xl2, int yl2, int radius, int r, int g, int b) {
+			draw_circle(xc,yc,radius,r,g,b);
+			flood_fill(xc,yc,0,100,100);
+			draw_line(xl1,yl1,xl2,yl2,r,g,b);
+			//draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
+			//draw_line(xc,yc-radius,xc,yc+radius,r,g,b);
+		}
 };
 
 
