@@ -426,6 +426,40 @@ void paket_parasut(int x, int y, int r, int g, int b) { //menggambar parasut den
 	}
 }
 
+void sayaprotating(int x, int y,int rad, int r, int g, int b){
+
+	fb->drawsayap(x,y,r,g,b);
+	int x1 = x + 44;
+	int y1 = y - 46;
+	int x2 = x + 53;
+	int y2 = y - 46;
+	int x3 = x + 29;
+	int y3 = y - 10;
+	int x4 = x + 31;
+	int y4 = y;
+	int xf = x + 15;
+	int yf = y - 5;
+	while(1) {
+
+		fb->reset_fill(xf,yf,0,0,0);
+		fb->rotate_point(&x1,&y1,rad,x,y);
+		fb->rotate_point(&x2,&y2,rad,x,y);
+		fb->rotate_point(&x3,&y3,rad,x,y);
+		fb->rotate_point(&x4,&y4,rad,x,y);
+		fb->rotate_point(&xf,&yf,rad,x,y);
+		fb->draw_line(x,y,x1,y1,255,255,255);
+		fb->draw_line(x1,y1,x2,y2,255,255,255);
+		fb->draw_line(x2,y2,x3,y3,255,255,255);
+		fb->draw_line(x3,y3,x4,y4,255,255,255);
+		fb->draw_line(x4,y4,x,y,255,255,255);
+		fb->flood_fill(xf,yf,r,g,b);
+		x += 2;
+		y += 2;
+		usleep(100000);
+	}
+	//fb->flood_fill(xf,yf,r,g,b);
+}
+
 void draw_parasut(int x, int y) {
 	// int x = 200;
 	int a = x;
