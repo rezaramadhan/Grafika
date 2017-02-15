@@ -221,6 +221,15 @@ class FrameBuffer {
 			//draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
 			//draw_line(xc,yc-radius,xc,yc+radius,r,g,b);
 		}
+		
+		void drawsayap(int x, int y,int r,int g,int b) {
+			draw_line(x,y,x+44,y-46,0,0,150);
+			draw_line(x+44,y-46,x+53,y-46,0,0,150);
+			draw_line(x+53,y-46,x+29,y-10,0,0,150);
+			draw_line(x+29,y-10,x+31,y,0,0,150);
+			draw_line(x+31,y,x,y,0,0,150);
+			flood_fill(x+15,y-5,r,g,b);
+		}
 };
 
 
