@@ -503,6 +503,56 @@ void rotating() {
 	}
 }
 
+
+void draw_halfcircle(int xc, int yc, int radius, int r, int g, int b) { //menggambar setengah lingkaran
+	int x=0;
+	int y=radius;
+	fb->put_pixel(xc+x,yc-y,r,g,b);
+
+	int p=3-(2*r);
+
+	for(x=0;x<=y;x++) {
+		if (p<0) {
+			y=y;
+			p=(p+(4*x)+6);
+		} else {
+			y=y-1;
+			p=p+((4*(x-y)+10));
+		}
+
+		fb->put_pixel(xc+x,yc-y,r,g,b);
+		fb->put_pixel(xc-x,yc-y,r,g,b);
+		fb->put_pixel(xc+y,yc-x,r,g,b);
+		fb->put_pixel(xc-y,yc-x,r,g,b);
+	}
+	fb->draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
+}
+
+void paket_parasut(int x, int y, int r, int g, int b) { //menggambar parasut dengan paket
+	if (r==0 && g==0 && b == 0) {
+		fb->reset_fill(x,y,0,0,0);
+		fb->reset_fill(x,y-60,0,0,0);
+		fb->draw_line(x,y-20,x-50,y-50,r,g,b);
+		fb->draw_line(x,y-20,x+50,y-50,r,g,b);
+		fb->draw_line(x,y-20,x-30,y-50,r,g,b);
+		fb->draw_line(x,y-20,x+30,y-50,r,g,b);
+		fb->draw_line(x,y-20,x-10,y-50,r,g,b);
+		fb->draw_line(x,y-20,x+10,y-50,r,g,b);
+	}
+	else {
+		fb->draw_circle(x,y-10,10,r,g,b);
+		fb->flood_fill(x,y-10,0,255,0);
+		draw_halfcircle(x,y-50,50,r,g,b);
+		fb->flood_fill(x,y-60,r,g,b);
+		fb->draw_line(x,y-20,x-50,y-50,r,g,b);
+		fb->draw_line(x,y-20,x+50,y-50,r,g,b);
+		fb->draw_line(x,y-20,x-30,y-50,r,g,b);
+		fb->draw_line(x,y-20,x+30,y-50,r,g,b);
+		fb->draw_line(x,y-20,x-10,y-50,r,g,b);
+		fb->draw_line(x,y-20,x+10,y-50,r,g,b);
+	}
+}
+
 int main() {
 
 	fb = new FrameBuffer;
@@ -514,6 +564,38 @@ int main() {
 	fb->rotate_point(&x,&y,120,500,500);
 	printf("%d %d\n", x,y);
 	fb->put_pixel(x,y,255,255,255);
+	
+	//tes pergerakan paket
+	/*
+	int x = 700;
+	int a = x;
+	int y = 200;
+	int b = y;
+	for(i=1;i<90;i++) {
+		paket_parasut(x,y,0,0,0);
+		fb->rotate_point(&x,&y,-1,a+100,b);
+		paket_parasut(x,y,100,0,0);
+		usleep(5000);
+	}
+	for(i=1;i<90;i++) {
+		paket_parasut(x,y,0,0,0);
+		fb->rotate_point(&x,&y,1,a,b+100);
+		paket_parasut(x,y,100,0,0);
+		usleep(5000);
+	}
+	for(i=1;i<90;i++) {
+		paket_parasut(x,y,0,0,0);
+		fb->rotate_point(&x,&y,-1,a+100,b+200);
+		paket_parasut(x,y,100,0,0);
+		usleep(5000);
+	}
+	for(i=1;i<90;i++) {
+		paket_parasut(x,y,0,0,0);
+		fb->rotate_point(&x,&y,1,a,b+300);
+		paket_parasut(x,y,100,0,0);
+		usleep(5000);
+	}
+	*/
 
 /*	thread t1(base);
 	thread t2(drawpesawat);
