@@ -190,6 +190,8 @@ void move_base(int xc, int yc) {
 	while(1) {
 		draw_base(x,y);
 		usleep(100000);
+		if (isdestroyed)
+			break;
 		erase_base(x,y);
 		x += delta;
 		if (x > 1100)
@@ -331,7 +333,7 @@ void bounce(int xc, int yc) {
 	bool down = true;
 	int posy = yc;
 	int accy = 0;
-	int gravity = 10;
+	int gravity = 15;
 	// int xl = xc + 25, yl;
 	while(1){
 		fb->drawBan1(xc,posy,25,100,0,0);
@@ -343,10 +345,11 @@ void bounce(int xc, int yc) {
 			posy += accy;
 		}
 		else{
-			accy = accy - gravity;
+			accy = ((accy - gravity) * 7)/8;
 			posy -= accy;
 		}
 		if (posy + 25 >= 700){
+			// accy = 10;
 			posy = 675;
 			down = false;
 		}
@@ -426,7 +429,7 @@ void paket_parasut(int x, int y, int r, int g, int b) { //menggambar parasut den
 	}
 }
 
-void sayaprotating(int x, int y,int rad, int r, int g, int b){
+void rotating_sayap(int x, int y,int rad, int r, int g, int b){
 
 	fb->drawsayap(x,y,r,g,b);
 	int x1 = x + 44;
@@ -439,7 +442,7 @@ void sayaprotating(int x, int y,int rad, int r, int g, int b){
 	int y4 = y;
 	int xf = x + 15;
 	int yf = y - 5;
-	while(1) {
+	while(x < 1000 && y < 700) {
 
 		fb->reset_fill(xf,yf,0,0,0);
 		fb->rotate_point(&x1,&y1,rad,x,y);
@@ -458,6 +461,44 @@ void sayaprotating(int x, int y,int rad, int r, int g, int b){
 		usleep(100000);
 	}
 	//fb->flood_fill(xf,yf,r,g,b);
+}
+
+void rotating_ekor(int x, int y,int rad, int r, int g, int b){
+
+	fb->draw_line(x,y,x+70,y+5,255,255,255);
+	fb->draw_line(x+70,y+5,x+70,y-35,255,255,255);
+	fb->draw_line(x+70,y-35,x,y-30,255,255,255);
+	fb->draw_line(x,y-30,x,y,255,255,255);
+	fb->flood_fill(x+5,y-5,200,200,200);
+
+	// usleep(100000000);
+
+	int x1 = x + 70;
+	int y1 = y + 5;
+	int x2 = x + 70;
+	int y2 = y - 35;
+	int x3 = x;
+	int y3 = y - 30;
+	int xf = x + 25;
+	int yf = y - 25;
+
+	while(x < 1000 && y < 600) {
+
+		fb->reset_fill(xf,yf,0,0,0);
+		fb->rotate_point(&x1,&y1,rad,x,y);
+		fb->rotate_point(&x2,&y2,rad,x,y);
+		fb->rotate_point(&x3,&y3,rad,x,y);
+		fb->rotate_point(&xf,&yf,rad,x,y);
+		fb->draw_line(x,y,x1,y1,255,255,255);
+		fb->draw_line(x1,y1,x2,y2,255,255,255);
+		fb->draw_line(x2,y2,x3,y3,255,255,255);
+		fb->draw_line(x3,y3,x,y,255,255,255);
+		fb->flood_fill(xf,yf,r,g,b);
+		x -= 3;
+		y += 3;
+		usleep(100000);
+	}
+	fb->flood_fill(xf,yf,r,g,b);
 }
 
 void draw_parasut(int x, int y) {
@@ -541,32 +582,28 @@ void drawpesawat(){
 		//printf("%d\n", xFront);
 	}
 	// usleep(10000000);
-	thread t1(draw_parasut,deltax-300,deltay+100);
+	thread t1(draw_parasut,deltax - 50,deltay);
+	thread t2(bounce, deltax - 100, deltay);
+	thread t3(rotating_sayap, deltax + 200, deltay, 40, 100, 100, 200);
+	thread t4(rotating_ekor, deltax + 300, deltay, -40, 100, 100, 200);
 	// // thread t2(drawPecahan,deltax-200,deltay+100, 400,500, 255,255,255, 2);
 	// // thread t3(drawPecahan,deltax-100,deltay+100, 500,500, 255,255,255, 3);
 	// // thread t4(drawPecahan,deltax+100,deltay+100, 600,500, 255,255,255, 6);
 	// // thread t5(drawPecahan,deltax+200,deltay+100, 700,500, 255,255,255, 7);
 	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
 }
 
 int main() {
 
 	fb = new FrameBuffer;
-	// fb->draw_circle(500,500,100,100,0,0);
-	// int x = 600;
-	// int y = 500;
-	// fb->put_pixel(x,y,255,255,255);
-	// //
-	// fb->rotate_point(&x,&y,120,500,500);
-	// printf("%d %d\n", x,y);
-	// fb->put_pixel(x,y,255,255,255);
 
-	//tes pergerakan paket
+	// rotating_ekor(400, 200, -20, 100, 100, 200);
+	// bounce(100,30);
 
-	// bounce(100,100);
-
-
-	// move_base(700,500);
+/////////////////////////////////////////MAIN START HERE
 	int baseX = 75, baseY = 700;
 	thread t1(move_base, baseX, baseY);
 	thread t2(drawpesawat);
@@ -606,7 +643,7 @@ int main() {
 
 	t1.join();
 	t2.join();
-
+////////////////////////////////////////////?MAIN ENDS HERE
 	delete fb;
 	return 0;
 }
