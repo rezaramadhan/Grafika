@@ -433,6 +433,35 @@ int getXBehind() {
 	return xFront + 176;
 }
 
+void bounce() {
+	fb->drawBan1(500,100,25,100,0,0);
+	bool down = true;
+	int posy = 100;
+	int accy = 0;
+	int gravity = 10;
+	while(1){
+		fb->drawBan1(500,posy,25,100,0,0);
+		usleep(100000);
+
+		fb->reset_fill(500,posy,0,0,0);
+		if(down){
+			accy = accy + gravity; 
+			posy += accy;
+		}
+		else{
+			accy = accy - gravity;
+			posy -= accy;
+		}
+		if (posy + 25 >= 700){
+			posy = 675;
+			down = false;
+		}
+		if (accy <= 0){
+			down = true;
+		}
+	}
+}
+
 int main() {
 
 	fb = new FrameBuffer;
