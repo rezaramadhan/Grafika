@@ -195,11 +195,11 @@ class FrameBuffer {
 		void rotate_point(int *x, int *y, int angle, int rotation_center_x, int rotation_center_y) {
 			//convert angle to radians
 			double rad_angle = angle * M_PI / 180;
-			printf("%f\n",rad_angle);
+			// printf("%f\n",rad_angle);
 			//translate to origin
 			double dx = *x - rotation_center_x;
 			double dy = *y - rotation_center_y;
-			printf("%f %f\n", dx,dy);
+			// printf("%f %f\n", dx,dy);
 			//rotate point
 			double new_dx = (dx) * cos(rad_angle) - (dy) * sin(rad_angle);
 			double new_dy = (dx) * sin(rad_angle) + (dy) * cos(rad_angle);
@@ -208,7 +208,7 @@ class FrameBuffer {
 			*x = (int)round(new_dx) + rotation_center_x;
 			*y = (int)round(new_dy) + rotation_center_y;
 		}
-	
+
 		void drawBan1(int xc, int yc, int radius, int r, int g, int b) {
 			draw_circle(xc,yc,radius,r,g,b);
 			flood_fill(xc,yc,100,100,0);

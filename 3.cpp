@@ -2,7 +2,7 @@
 using namespace std;
 
 
-	int deltay =200 ;
+int deltay =200 ;
 
 FrameBuffer *fb;
 int a, b, c, d, e,f,g,h,i,j,k,m,l;
@@ -152,93 +152,51 @@ void selectPart(float x, float y, int r, int g, int b, int num, bool reset) {
 	}
 }
 
-void draw_base() {
-	a = 750; b = 800; c = 1000; d = 1050; e = 800; f = 800; g = 1000; h = 1000; i = 880; j = 880; k = 920; m = 920;
-	fb->draw_line(a,650,d,650,0,0,255);
-	fb->draw_line(e,650,f,600,0,0,255);
-	fb->draw_line(f,600,g,600,0,0,255);
-	fb->draw_line(g,600,h,650,0,0,255);
+void draw_base(int x, int y) {
 
-	/* meriam */
-	fb->draw_line(i,600,j,550,0,255,0);
-	fb->draw_line(j,550,k,550,0,255,0);
-	fb->draw_line(k,550,m,600,0,255,0);
+	fb->draw_line(x, y, x+250, y, 0,112,255);
+	fb->draw_line(x, y, x+70, y-50, 0,112,255);
+	fb->draw_line(x+70, y-50, x+180, y-50, 0,112,255);
+	fb->draw_line(x+180, y-50, x+250, y, 0,112,255);
 
-//	fb->put_pixel(j+ 5, 555, 255,255,255);
-//		fb->put_pixel(f + 5, 605, 200,200,200);
-	fb->flood_fill(j+ 5, 555, 255,255,255);
-	fb->flood_fill(f + 5, 605,  200,200,200);
 
+	fb->draw_line(x+100, y-50, x+100, y-85, 255,255,0);
+	fb->draw_line(x+100, y-85, x+150, y-85, 255,255,0);
+	fb->draw_line(x+150, y-85, x+150, y-50, 255,255,0);
+
+	fb->flood_fill(x+ 25, y-5, 0,112,255);
+	fb->flood_fill(x + 105, y - 55,  255,255,0);
 }
 
-void move_base() {
-	int delta = -20;
-		while(1){
-			a = 750; b = 800; c = 1000; d = 1050; e = 800; f = 800; g = 1000; h = 1000; i = 880; j = 880; k = 920; m = 920;
+void erase_base(int x, int y) {
 
-			/* deck kapal */
-			fb->draw_line(a,650,d,650,0,0,255);
-			fb->draw_line(e,650,f,600,0,0,255);
-			fb->draw_line(f,600,g,600,0,0,255);
-			fb->draw_line(g,600,h,650,0,0,255);
+	fb->draw_line(x, y, x+250, y, 0,0,0);
+	fb->draw_line(x, y, x+70, y-50, 0,0,0);
+	fb->draw_line(x+70, y-50, x+180, y-50, 0,0,0);
+	fb->draw_line(x+180, y-50, x+250, y, 0,0,0);
 
-			/* meriam */
-			fb->draw_line(i,600,j,550,0,255,0);
-			fb->draw_line(j,550,k,550,0,255,0);
-			fb->draw_line(k,550,m,600,0,255,0);
 
-			fb->flood_fill(j+ 5, 555, 255,255,255);
-			fb->flood_fill(f + 5, 605,  200,200,200);
+	fb->draw_line(x+100, y-50, x+100, y-85, 0,0,0);
+	fb->draw_line(x+100, y-85, x+150, y-85, 0,0,0);
+	fb->draw_line(x+150, y-85, x+150, y-50, 0,0,0);
 
-			while(a > 0){
-				/* deck kapal */
-				fb->draw_line(a,650,d,650,0,0,0);
-				fb->draw_line(e,650,f,600,0,0,0);
-				fb->draw_line(f,600,g,600,0,0,0);
-				fb->draw_line(g,600,h,650,0,0,0);
+	fb->reset_fill(x+ 25, y-5, 0,0,0);
+	fb->reset_fill(x + 105, y - 55,  0,0,0);
+}
 
-				/* meriam */
-				fb->draw_line(i,600,j,550,0,0,0);
-				fb->draw_line(j,550,k,550,0,0,0);
-				fb->draw_line(k,550,m,600,0,0,0);
+void move_base(int xc, int yc) {
+	int x = xc, y = yc;
+	int delta = 20;
+	while(1) {
+		draw_base(x,y);
+		usleep(100000);
+		erase_base(x,y);
+		x += delta;
+		if (x > 1100)
+			x = xc;
 
-				fb->reset_fill(j+ 5, 555, 0,0,0);
-				fb->reset_fill(f + 5, 605,  0,0,0);
-				a += delta; b += delta;	c += delta;	d += delta;	e += delta;	f += delta;	g += delta;	h += delta;	i += delta;	j += delta;	k += delta;	m += delta;
-
-				xbullet = ( j + k )/2;
-
-				/* deck kapal */
-				fb->draw_line(a,650,d,650,0,0,255);
-				fb->draw_line(e,650,f,600,0,0,255);
-				fb->draw_line(f,600,g,600,0,0,255);
-				fb->draw_line(g,600,h,650,0,0,255);
-
-				/* meriam */
-				fb->draw_line(i,600,j,550,0,255,0);
-				fb->draw_line(j,550,k,550,0,255,0);
-				fb->draw_line(k,550,m,600,0,255,0);
-
-				fb->flood_fill(j+ 5, 555, 255,255,255);
-				fb->flood_fill(f + 5, 605,  200,200,200);
-				usleep(50000);
-				}
-
-			/* deck kapal */
-			fb->draw_line(a,650,d,650,0,0,0);
-			fb->draw_line(e,650,f,600,0,0,0);
-			fb->draw_line(f,600,g,600,0,0,0);
-			fb->draw_line(g,600,h,650,0,0,0);
-
-			/* meriam */
-			fb->draw_line(i,600,j,550,0,0,0);
-			fb->draw_line(j,550,k,550,0,0,0);
-			fb->draw_line(k,550,m,600,0,0,0);
-
-			fb->reset_fill(j+ 5, 555, 0,0,0);
-			fb->reset_fill(f + 5, 605,  0,0,0);
-
-		}
+		xbullet = x + 125;
+	}
 }
 
 void drawPecahan(float x1, float y1,float x2, float y2, int r, int g, int b, int num)
@@ -327,79 +285,13 @@ void drawPecahan(float x1, float y1,float x2, float y2, int r, int g, int b, int
 	  }
 	}
 }
+//
+// void base() {
+// 	// draw_base();
+// 	move_base();
+// }
 
-void drawpesawat(){
-
-	// int deltay = 60 ;
-
-	int deltax = 1100;
-	int n = 0;
-	while (1)
-	{
-		fb->draw_line(deltax+0,3+deltay,deltax+16, 11+deltay,0,0,150);
-		fb->draw_line(deltax+16,11+deltay,deltax+81,11+deltay,0,0,150);
-		fb->draw_line(deltax+81,11+deltay,deltax+125,57+deltay,0,0,150);
-		fb->draw_line(deltax+125,57+deltay,deltax+134,57+deltay,0,0,150);
-		fb->draw_line(deltax+134,57+deltay,deltax+110,21+deltay,0,0,150);
-		fb->draw_line(deltax+110,21+deltay,deltax+112,11+deltay,0,0,150);
-		fb->draw_line(deltax+112,11+deltay,deltax+154,9+deltay,0,0,150);
-		fb->draw_line(deltax+154,9+deltay,deltax+167,28+deltay,0,0,150);
-		fb->draw_line(deltax+167,28+deltay,deltax+176,28+deltay,0,0,150);
-		fb->draw_line(deltax+176,28+deltay,deltax+169,11+deltay,0,0,150);
-		fb->draw_line(deltax+169,11+deltay,deltax+169,-11+deltay,0,0,150);
-		fb->draw_line(deltax+169,-11+deltay,deltax+176,-28+deltay,0,0,150);
-		fb->draw_line(deltax+176,-28+deltay,deltax+167,-28+deltay,0,0,150);
-		fb->draw_line(deltax+167,-28+deltay,deltax+154,-9+deltay,0,0,150);
-		fb->draw_line(deltax+154,-9+deltay,deltax+112,-11+deltay,0,0,150);
-		fb->draw_line(deltax+112,-11+deltay,deltax+110,-21+deltay,0,0,150);
-		fb->draw_line(deltax+110,-21+deltay,deltax+134,-57+deltay,0,0,150);
-		fb->draw_line(deltax+134,-57+deltay,deltax+125,-57+deltay,0,0,150);
-		fb->draw_line(deltax+125,-57+deltay,deltax+81,-11+deltay,0,0,150);
-		fb->draw_line(deltax+81,-11+deltay,deltax+16,-11+deltay,0,0,150);
-		fb->draw_line(deltax+16,-11+deltay,deltax+0,-3+deltay,0,0,150);
-		fb->draw_line(deltax+0,3+deltay,deltax+0,0+deltay,0,0,150);
-		fb->draw_line(deltax+0,-3+deltay,deltax+0,0+deltay,0,0,150);
-
-		fb->flood_fill(deltax+90,deltay,0,0,150);
-
-		usleep(100000);
-
-		fb->reset_fill(deltax+90,deltay,0,0,0);
-		if (isdestroyed) {
-			break;
-		}
-
-		deltax = deltax-13;
-		if (deltax <= 200) {
-			deltax = 1100;
-		}
-		xFront = deltax;
-		//printf("%d\n", xFront);
-	}
-	// usleep(10000000);
-	thread t1(drawPecahan,deltax-300,deltay+100,300,500, 255,255,255, 1);
-	thread t2(drawPecahan,deltax-200,deltay+100, 400,500, 255,255,255, 2);
-	thread t3(drawPecahan,deltax-100,deltay+100, 500,500, 255,255,255, 3);
-	thread t4(drawPecahan,deltax+100,deltay+100, 600,500, 255,255,255, 6);
-	thread t5(drawPecahan,deltax+200,deltay+100, 700,500, 255,255,255, 7);
-	t1.join();
-	t2.join();
-	t3.join();
-	t4.join();
-	t5.join();
-	// drawPecahan(deltax,deltay, 500,700, 255,255,255, 2);
-	// drawPecahan(deltax,deltay, 500,1000, 255,255,255, 3);
-	// drawPecahan(deltax,deltay, 500,1000, 255,255,255, 4);
-	// drawPecahan(deltax,deltay, 500,1000, 255,255,255, 5);
-
-}
-
-void base() {
-	draw_base();
-	move_base();
-}
-
-void draw_bullet(int xbullet) {
+void draw_bullet(int xbullet, int y2bullet) {
 	int a = xbullet - 20;
 	int b = xbullet + 20;
 	int c = xbullet;
@@ -412,7 +304,7 @@ void draw_bullet(int xbullet) {
 	fb->flood_fill(b -5,y2bullet -5,255,255,255);
 }
 
-void erase_bullet(int xbullet) {
+void erase_bullet(int xbullet, int y2bullet) {
 	int a = xbullet - 20;
 	int b = xbullet + 20;
 	int c = xbullet;
@@ -433,19 +325,21 @@ int getXBehind() {
 	return xFront + 176;
 }
 
-void bounce() {
-	fb->drawBan1(500,100,25,100,0,0);
+void bounce(int xc, int yc) {
+
+	fb->drawBan1(xc,yc,25,100,0,0);
 	bool down = true;
-	int posy = 100;
+	int posy = yc;
 	int accy = 0;
 	int gravity = 10;
+	// int xl = xc + 25, yl;
 	while(1){
-		fb->drawBan1(500,posy,25,100,0,0);
+		fb->drawBan1(xc,posy,25,100,0,0);
 		usleep(100000);
 
-		fb->reset_fill(500,posy,0,0,0);
+		fb->reset_fill(xc,posy,0,0,0);
 		if(down){
-			accy = accy + gravity; 
+			accy = accy + gravity;
 			posy += accy;
 		}
 		else{
@@ -460,7 +354,7 @@ void bounce() {
 			down = true;
 		}
 		if ((posy==675)&&(accy==0)) {
-			int x = 500 ;
+			int x = xc ;
 			int y = posy ;
 			int xl1;
 			int yl1;
@@ -470,7 +364,7 @@ void bounce() {
 			xl2 = x+25;
 			yl1 = y;
 			yl2 = y;
-	
+
 			while(1){
 				fb->drawBan(x,y,xl1,yl1,xl2,yl2,25,100,0,0);
 				fb->rotate_point(&xl1,&yl1,30,x,y);
@@ -532,23 +426,10 @@ void paket_parasut(int x, int y, int r, int g, int b) { //menggambar parasut den
 	}
 }
 
-int main() {
-
-	fb = new FrameBuffer;
-	fb->draw_circle(500,500,100,100,0,0);
-	int x = 600;
-	int y = 500;
-	fb->put_pixel(x,y,255,255,255);
-	//
-	fb->rotate_point(&x,&y,120,500,500);
-	printf("%d %d\n", x,y);
-	fb->put_pixel(x,y,255,255,255);
-	
-	//tes pergerakan paket
-	/*
-	int x = 700;
+void draw_parasut(int x, int y) {
+	// int x = 200;
 	int a = x;
-	int y = 200;
+	// int y = 200;
 	int b = y;
 	for(i=1;i<90;i++) {
 		paket_parasut(x,y,0,0,0);
@@ -574,42 +455,124 @@ int main() {
 		paket_parasut(x,y,100,0,0);
 		usleep(5000);
 	}
-	*/
+}
 
-/*	thread t1(base);
+
+void drawpesawat(){
+
+	// int deltay = 60 ;
+
+	int deltax = 1100;
+	int n = 0;
+	while (1)
+	{
+		fb->draw_line(deltax+0,3+deltay,deltax+16, 11+deltay,0,0,150);
+		fb->draw_line(deltax+16,11+deltay,deltax+81,11+deltay,0,0,150);
+		fb->draw_line(deltax+81,11+deltay,deltax+125,57+deltay,0,0,150);
+		fb->draw_line(deltax+125,57+deltay,deltax+134,57+deltay,0,0,150);
+		fb->draw_line(deltax+134,57+deltay,deltax+110,21+deltay,0,0,150);
+		fb->draw_line(deltax+110,21+deltay,deltax+112,11+deltay,0,0,150);
+		fb->draw_line(deltax+112,11+deltay,deltax+154,9+deltay,0,0,150);
+		fb->draw_line(deltax+154,9+deltay,deltax+167,28+deltay,0,0,150);
+		fb->draw_line(deltax+167,28+deltay,deltax+176,28+deltay,0,0,150);
+		fb->draw_line(deltax+176,28+deltay,deltax+169,11+deltay,0,0,150);
+		fb->draw_line(deltax+169,11+deltay,deltax+169,-11+deltay,0,0,150);
+		fb->draw_line(deltax+169,-11+deltay,deltax+176,-28+deltay,0,0,150);
+		fb->draw_line(deltax+176,-28+deltay,deltax+167,-28+deltay,0,0,150);
+		fb->draw_line(deltax+167,-28+deltay,deltax+154,-9+deltay,0,0,150);
+		fb->draw_line(deltax+154,-9+deltay,deltax+112,-11+deltay,0,0,150);
+		fb->draw_line(deltax+112,-11+deltay,deltax+110,-21+deltay,0,0,150);
+		fb->draw_line(deltax+110,-21+deltay,deltax+134,-57+deltay,0,0,150);
+		fb->draw_line(deltax+134,-57+deltay,deltax+125,-57+deltay,0,0,150);
+		fb->draw_line(deltax+125,-57+deltay,deltax+81,-11+deltay,0,0,150);
+		fb->draw_line(deltax+81,-11+deltay,deltax+16,-11+deltay,0,0,150);
+		fb->draw_line(deltax+16,-11+deltay,deltax+0,-3+deltay,0,0,150);
+		fb->draw_line(deltax+0,3+deltay,deltax+0,0+deltay,0,0,150);
+		fb->draw_line(deltax+0,-3+deltay,deltax+0,0+deltay,0,0,150);
+
+		fb->flood_fill(deltax+90,deltay,0,0,150);
+
+		usleep(100000);
+
+		fb->reset_fill(deltax+90,deltay,0,0,0);
+		if (isdestroyed) {
+			break;
+		}
+
+		deltax = deltax-13;
+		if (deltax <= 200) {
+			deltax = 1100;
+		}
+		xFront = deltax;
+		//printf("%d\n", xFront);
+	}
+	// usleep(10000000);
+	thread t1(draw_parasut,deltax-300,deltay+100);
+	// // thread t2(drawPecahan,deltax-200,deltay+100, 400,500, 255,255,255, 2);
+	// // thread t3(drawPecahan,deltax-100,deltay+100, 500,500, 255,255,255, 3);
+	// // thread t4(drawPecahan,deltax+100,deltay+100, 600,500, 255,255,255, 6);
+	// // thread t5(drawPecahan,deltax+200,deltay+100, 700,500, 255,255,255, 7);
+	t1.join();
+}
+
+int main() {
+
+	fb = new FrameBuffer;
+	// fb->draw_circle(500,500,100,100,0,0);
+	// int x = 600;
+	// int y = 500;
+	// fb->put_pixel(x,y,255,255,255);
+	// //
+	// fb->rotate_point(&x,&y,120,500,500);
+	// printf("%d %d\n", x,y);
+	// fb->put_pixel(x,y,255,255,255);
+
+	//tes pergerakan paket
+
+	// bounce(100,100);
+
+
+	// move_base(700,500);
+	int baseX = 75, baseY = 700;
+	thread t1(move_base, baseX, baseY);
 	thread t2(drawpesawat);
 
 	int oldbullet;
+
 	while(!isdestroyed) {
 		int ch = getchar();
-        if(ch == 10){
-            oldbullet = xbullet;
-			draw_bullet(oldbullet);
-			while(y2bullet - 75 > 0){
-				erase_bullet(oldbullet);
+	    if(ch == 10){
+	        oldbullet = xbullet;
+			int ybullet = baseY - 90;
+			draw_bullet(oldbullet,ybullet);
+
+			while(ybullet - 50 > 0){
+				erase_bullet(oldbullet,ybullet);
 				y1bullet -= 5;
-                y2bullet -= 5;
-				if( (y2bullet - 40 <= deltay +100) && (oldbullet - 10 > xFront && oldbullet + 10 < xFront + 200)){
-                  isdestroyed = 1;
+	            ybullet -= 5;
+				if( (ybullet - 40 <= deltay +100) && (oldbullet - 10 > xFront && oldbullet + 10 < xFront + 200)){
+					isdestroyed = 1;
+					break;
+				}
+				draw_bullet(oldbullet,ybullet);
 
-                  break;
-                }
+	            usleep(9000);
+	        }
 
-				draw_bullet(oldbullet);
-
-                usleep(9000);
-            }
 			if (!isdestroyed)
-            	erase_bullet(oldbullet);
+	        	erase_bullet(oldbullet,ybullet);
+
 			oldbullet = xbullet;
-            y1bullet = 550;
-            y2bullet = 500;
-        }
-  }
+	        y1bullet = 550;
+	        y2bullet = 500;
+	    }
+	}
+
+
 
 	t1.join();
 	t2.join();
-*/
+
 	delete fb;
 	return 0;
 }
