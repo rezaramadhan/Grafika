@@ -10,6 +10,11 @@
 #include <sys/mman.h>
 #include <sys/ioctl.h>
 #include <bits/stdc++.h>
+#define TOP 8
+#define BOTTOM 4
+#define RIGHT 2
+#define LEFT 1
+
 using namespace std;
 
 class FrameBuffer {
@@ -266,23 +271,81 @@ class FrameBuffer {
 			return retval;
 		}
 
-		void clip_draw_line(int x1, int y1, int x2, int y2, int r, int g, int b) {
-			int reg1 = find_region(x1, y1);
-			int reg2 = find_region(x2, y2);
+		void draw_line_clip(int xt1, int yt1, int xt2, int yt2, int r, int g, int b) {
+			printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
 
-			if ((reg1 == 0 && reg2 == 0)) {
-				draw_line(x1,y1,x2,y2,r,g,b);
-				return;
+			int outcode0 = find_region(xt1, yt1);
+			int outcode1 = find_region(xt2, yt2);
+
+			bool accept = false;
+
+			double x1 = (double) xt1;
+			double y1 = (double) yt1;
+			double x2 = (double) xt2;
+			double y2 = (double) yt2;
+			double ymin = (double) wyoffset;
+			double ymax = (double) wyoffset + wysize;
+			double xmin = (double) wxoffset;
+			double xmax = (double) wxoffset + wxsize;
+
+			while (true) {
+				if (!(outcode0 | outcode1)) { // Bitwise OR is 0. Trivially accept and get out of loop
+					accept = true;
+					// printf("acc\n" );
+					break;
+				} else if (outcode0 & outcode1) { // Bitwise AND is not 0. (implies both end points are in the same region outside the window). Reject and get out of loop
+					accept = false;
+					// printf("reject\n" );
+					break;
+				} else {
+					// failed both tests, so calculate the line segment to clip
+					// from an outside point to an intersection with clip edge
+					double x, y;
+
+					// At least one endpoint is outside the clip rectangle; pick it.
+					int outcodeOut = outcode0 ? outcode0 : outcode1;
+
+					// Now find the intersection point;
+					// use formulas y = y0 + slope * (x - x0), x = x0 + (1 / slope) * (y - y0)
+					if (outcodeOut & TOP) {           // point is above the clip rectangle
+						x = x1 + (x2 - x1) * (ymax - y1) / (y2 - y1);
+						y = ymin;
+					} else if (outcodeOut & BOTTOM) { // point is below the clip rectangle
+						x = x1 + (x2 - x1) * (ymin - y1) / (y2 - y1);
+						y = ymax;
+					} else if (outcodeOut & RIGHT) {  // point is to the right of clip rectangle
+						y = y1 + (y2 - y1) * (xmax - x1) / (x2 - x1);
+						x = xmax;
+					} else if (outcodeOut & LEFT) {   // point is to the left of clip rectangle
+						y = y1 + (y2 - y1) * (xmin - x1) / (x2 - x1);
+						x = xmin;
+					}
+
+					// Now we move outside point to intersection point to clip
+					// and get ready for next pass.
+					if (outcodeOut == outcode0) {
+						x1 = x;
+						y1 = y;
+						outcode0 = find_region((int) x1, (int)y1);
+					} else {
+						x2 = x;
+						y2 = y;
+						outcode1 = find_region((int)x2, (int)y2);
+					}
+				}
 			}
 
-			if ((reg1 & reg2) == 0) {
-				if (reg1 != 0) {
+			if (accept) {
+				xt1 = x1;
+				xt2 = x2;
+				yt1 = y1;
+				yt2 = y2;
 
-				}
-
-				if (reg2 != 0) {
-
-				}
+				// printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
+				remap_point(&xt1, &yt1);
+				remap_point(&xt2, &yt2);
+				// printf("remap %d %d %d %d\n", xt1, yt1, xt2, yt2);
+				draw_line(xt1, yt1, xt2, yt2, r, g, b);
 			}
 		}
 };
