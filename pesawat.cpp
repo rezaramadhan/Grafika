@@ -14,6 +14,30 @@ int y2bullet = 500;
 
 int xFront = 900;
 
+
+void drawBan1(int xc, int yc, int radius, int r, int g, int b) {
+	draw_circle(xc,yc,radius,r,g,b);
+	flood_fill(xc,yc,100,100,0);
+	draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
+}
+
+void drawBan(int xc, int yc, int xl1, int yl1, int xl2, int yl2, int radius, int r, int g, int b) {
+	draw_circle(xc,yc,radius,r,g,b);
+	flood_fill(xc,yc,0,100,100);
+	draw_line(xl1,yl1,xl2,yl2,r,g,b);
+	//draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
+	//draw_line(xc,yc-radius,xc,yc+radius,r,g,b);
+}
+
+void drawsayap(int x, int y,int r,int g,int b) {
+	draw_line(x,y,x+44,y-46,0,0,150);
+	draw_line(x+44,y-46,x+53,y-46,0,0,150);
+	draw_line(x+53,y-46,x+29,y-10,0,0,150);
+	draw_line(x+29,y-10,x+31,y,0,0,150);
+	draw_line(x+31,y,x,y,0,0,150);
+	flood_fill(x+15,y-5,r,g,b);
+}
+
 void drawExplosion(int xc, int yc){
 	//Inner explosion
 	fb->draw_line(xc+15,yc+20,xc+50,yc+40,255,255,0); //1
@@ -329,14 +353,14 @@ int getXBehind() {
 
 void bounce(int xc, int yc) {
 
-	fb->drawBan1(xc,yc,25,100,0,0);
+	drawBan1(xc,yc,25,100,0,0);
 	bool down = true;
 	int posy = yc;
 	int accy = 0;
 	int gravity = 15;
 	// int xl = xc + 25, yl;
 	while(1){
-		fb->drawBan1(xc,posy,25,100,0,0);
+		drawBan1(xc,posy,25,100,0,0);
 		usleep(100000);
 
 		fb->reset_fill(xc,posy,0,0,0);
@@ -369,7 +393,7 @@ void bounce(int xc, int yc) {
 			yl2 = y;
 
 			while(1){
-				fb->drawBan(x,y,xl1,yl1,xl2,yl2,25,100,0,0);
+				drawBan(x,y,xl1,yl1,xl2,yl2,25,100,0,0);
 				fb->rotate_point(&xl1,&yl1,30,x,y);
 				fb->rotate_point(&xl2,&yl2,30,x,y);
 				usleep(100000);
@@ -431,7 +455,7 @@ void paket_parasut(int x, int y, int r, int g, int b) { //menggambar parasut den
 
 void rotating_sayap(int x, int y,int rad, int r, int g, int b){
 
-	fb->drawsayap(x,y,r,g,b);
+	drawsayap(x,y,r,g,b);
 	int x1 = x + 44;
 	int y1 = y - 46;
 	int x2 = x + 53;

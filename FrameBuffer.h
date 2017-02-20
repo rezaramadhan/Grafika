@@ -22,6 +22,16 @@ class FrameBuffer {
 	    char *fbp;
 
 	public:
+		int vxoffset;
+		int vyoffset;
+		int vxsize;
+		int vysize;
+		int wxoffset;
+		int wyoffset;
+		int wxsize;
+		int wysize;
+
+
 		FrameBuffer() {
 		    // Open the file for reading and writing
 		    fbfd = open("/dev/fb0", O_RDWR);
@@ -56,6 +66,13 @@ class FrameBuffer {
 				for(int j = 0; j<vinfo.yres - 10; j++)
 					put_pixel(i,j,0,0,0);
 
+			vxsize = vinfo.xres / 4 * 3;
+			vysize = vinfo.yres / 4 * 3;
+
+			vxoffset = vinfo.xres / 8 * 1;
+			vyoffset = vinfo.yres / 8 * 1;
+
+			wxsize = vinfo.xres; wysize = vinfo.yres; wxoffset = 0; wyoffset = 0;
 		}
 
 		~FrameBuffer(){
@@ -209,27 +226,64 @@ class FrameBuffer {
 			*y = (int)round(new_dy) + rotation_center_y;
 		}
 
-		void drawBan1(int xc, int yc, int radius, int r, int g, int b) {
-			draw_circle(xc,yc,radius,r,g,b);
-			flood_fill(xc,yc,100,100,0);
-			draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
+		void draw_view() {
+			draw_line(vxoffset, vyoffset, vxoffset + vxsize, vyoffset, 55, 55, 55);
+			draw_line(vxoffset+vxsize, vyoffset, vxoffset+vxsize, vyoffset+vysize, 55,55,55);
+			draw_line(vxoffset+vxsize, vyoffset+vysize, vxoffset, vyoffset+vysize, 55,55,55);
+			draw_line(vxoffset, vyoffset+vysize, vxoffset ,vyoffset ,55,55,55);
 		}
 
-		void drawBan(int xc, int yc, int xl1, int yl1, int xl2, int yl2, int radius, int r, int g, int b) {
-			draw_circle(xc,yc,radius,r,g,b);
-			flood_fill(xc,yc,0,100,100);
-			draw_line(xl1,yl1,xl2,yl2,r,g,b);
-			//draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
-			//draw_line(xc,yc-radius,xc,yc+radius,r,g,b);
+		void remap_point(int *x, int *y) {
+			double newx = *x;
+			double newy = *y;
+
+			newx -= wxoffset;
+			newy -= wyoffset;
+
+			newx *= ((double) vxsize / (double) wxsize);
+			newy *= ((double) vysize / (double) wysize);
+
+			newx += vxoffset;
+			newy += vyoffset;
+
+			*x = (int) newx;
+			*y = (int) newy;
 		}
-		
-		void drawsayap(int x, int y,int r,int g,int b) {
-			draw_line(x,y,x+44,y-46,0,0,150);
-			draw_line(x+44,y-46,x+53,y-46,0,0,150);
-			draw_line(x+53,y-46,x+29,y-10,0,0,150);
-			draw_line(x+29,y-10,x+31,y,0,0,150);
-			draw_line(x+31,y,x,y,0,0,150);
-			flood_fill(x+15,y-5,r,g,b);
+
+		int find_region (int x, int y) {
+			int retval = 0;
+
+			if (x < wxoffset)
+			 	retval |= 1;
+			else if (x > (wxoffset + wxsize))
+				retval |= 2;
+
+			if (y < wyoffset)
+				retval |= 8;
+			else if (y > (wyoffset + wysize))
+				retval |= 4;
+
+			return retval;
+		}
+
+		void clip_draw_line(int x1, int y1, int x2, int y2, int r, int g, int b) {
+			int reg1 = find_region(x1, y1);
+			int reg2 = find_region(x2, y2);
+
+			if ((reg1 == 0 && reg2 == 0)) {
+				draw_line(x1,y1,x2,y2,r,g,b);
+				return;
+			}
+
+			if ((reg1 & reg2) == 0) {
+				if (reg1 != 0) {
+
+				}
+
+				if (reg2 != 0) {
+
+				}
+			}
 		}
 };
 
