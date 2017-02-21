@@ -2,25 +2,11 @@
 
 int main() {
 	
-/*
-	fb->vyoffset = 70;
-    fb->vxoffset = 900;
-    fb->vxsize = 300;
-    fb->vysize = 300;
-
-    fb->draw_view();
-    fb->wyoffset = 70;
-    fb->wxoffset = 900;
-    fb->wxsize = 300;
-    fb->wysize = 300;
-
-
-    fb->draw_line_clip(250,310,400,350, 0,0,255);
-	//fb->draw_line_clip(1000,60,1000,120,0,0,150);
-*/	
+	FrameBuffer *fb;
 //pesawat
-	int deltay = 60 ;
+	int deltay = 200 ;
 	int deltax = 1100;
+	
 	while (1)
 	{
 	// frame clipping
@@ -59,7 +45,7 @@ int main() {
 		fb->draw_line_clip(deltax+0,3+deltay,deltax+0,0+deltay,0,0,150);
 		fb->draw_line_clip(deltax+0,-3+deltay,deltax+0,0+deltay,0,0,150);
 
-		//fb->flood_fill(deltax+90,deltay,0,0,150);
+		fb->flood_fill_clip(deltax+90,deltay,0,0,150);
 
 		usleep(100000);
 		
@@ -86,7 +72,7 @@ int main() {
 		fb->draw_line_clip(deltax+16,-11+deltay,deltax+0,-3+deltay,0,0,0);
 		fb->draw_line_clip(deltax+0,3+deltay,deltax+0,0+deltay,0,0,0);
 		fb->draw_line_clip(deltax+0,-3+deltay,deltax+0,0+deltay,0,0,0);
-		//fb->reset_fill(deltax+0,-3+deltay,0,0,0);
+		fb->reset_fill_clip(deltax+0,-3+deltay,0,0,0);
 		//if (isdestroyed) {
 		//	break;
 		//}

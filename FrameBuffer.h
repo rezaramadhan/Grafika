@@ -130,6 +130,11 @@ class FrameBuffer {
 
 			}
 		}
+		
+		void flood_fill_clip(int x, int y, int r, int g, int b) {
+			remap_point(&x,&y);
+			flood_fill(x,y,r,g,b);
+		}
 
 		void draw_line(float x1, float y1,float x2, float y2, int r, int g, int b)
 		{
@@ -173,6 +178,12 @@ class FrameBuffer {
 			  }
 			}
 		}
+
+		void reset_fill_clip(int x, int y, int r, int g, int b) {
+			remap_point(&x,&y);
+			reset_fill(x,y,r,g,b);
+		}
+		
 
 		void reset_fill(int x, int y, int r, int g, int b) {
 			if (!(is_black(x,y))) {
@@ -349,11 +360,7 @@ class FrameBuffer {
 			}
 		}
 		
-		void flood_fill_clip(int x, int y, int r, int g, int b) {
-			remap_point(&x,&y);
-			flood_fill(x,y,r,g,b);
-		}
-
+		
 		void drawpesawat(){
 
 	int deltay = 60 ;
@@ -416,9 +423,7 @@ class FrameBuffer {
 	//t4.join();
 }
 
-
 	
->>>>>>> 8fad3650017cb4c28d235e6973c535b834147430
 };
 
 
