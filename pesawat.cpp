@@ -18,80 +18,80 @@ int xFront = 900;
 void drawBan1(int xc, int yc, int radius, int r, int g, int b) {
 	draw_circle(xc,yc,radius,r,g,b);
 	flood_fill(xc,yc,100,100,0);
-	draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
+	draw_line_clip(xc-radius,yc,xc+radius,yc,r,g,b);
 }
 
 void drawBan(int xc, int yc, int xl1, int yl1, int xl2, int yl2, int radius, int r, int g, int b) {
 	draw_circle(xc,yc,radius,r,g,b);
 	flood_fill(xc,yc,0,100,100);
-	draw_line(xl1,yl1,xl2,yl2,r,g,b);
-	//draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
-	//draw_line(xc,yc-radius,xc,yc+radius,r,g,b);
+	draw_line_clip(xl1,yl1,xl2,yl2,r,g,b);
+	//draw_line_clip(xc-radius,yc,xc+radius,yc,r,g,b);
+	//draw_line_clip(xc,yc-radius,xc,yc+radius,r,g,b);
 }
 
 void drawsayap(int x, int y,int r,int g,int b) {
-	draw_line(x,y,x+44,y-46,0,0,150);
-	draw_line(x+44,y-46,x+53,y-46,0,0,150);
-	draw_line(x+53,y-46,x+29,y-10,0,0,150);
-	draw_line(x+29,y-10,x+31,y,0,0,150);
-	draw_line(x+31,y,x,y,0,0,150);
+	draw_line_clip(x,y,x+44,y-46,0,0,150);
+	draw_line_clip(x+44,y-46,x+53,y-46,0,0,150);
+	draw_line_clip(x+53,y-46,x+29,y-10,0,0,150);
+	draw_line_clip(x+29,y-10,x+31,y,0,0,150);
+	draw_line_clip(x+31,y,x,y,0,0,150);
 	flood_fill(x+15,y-5,r,g,b);
 }
 
 void drawExplosion(int xc, int yc){
 	//Inner explosion
-	fb->draw_line(xc+15,yc+20,xc+50,yc+40,255,255,0); //1
-	fb->draw_line(xc+50,yc+40,xc+20,yc+10,255,255,0); //2
-	fb->draw_line(xc+20,yc+10,xc+40,yc,255,255,0); //3
-	fb->draw_line(xc+40,yc,xc+20,yc-10,255,255,0); //4
-	fb->draw_line(xc+20,yc-10,xc+25,yc-40,255,255,0); //5
-	fb->draw_line(xc+25,yc-40,xc,yc-15,255,255,0); //6
-	fb->draw_line(xc,yc-15,xc-10,yc-30,255,255,0); //7
-	fb->draw_line(xc-10,yc-30,xc-20,yc-5,255,255,0); //8
-	fb->draw_line(xc-20,yc-5,xc-45,yc-13,255,255,0); //9
-	fb->draw_line(xc-45,yc-13,xc-30,yc+7,255,255,0); //10
-	fb->draw_line(xc-30,yc+7,xc-55,yc+15,255,255,0); //11
-	fb->draw_line(xc-55,yc+15,xc-14,yc+23,255,255,0); //12
-	fb->draw_line(xc-14,yc+23,xc-2,yc+38,255,255,0); //13
-	fb->draw_line(xc-2,yc+38,xc+15,yc+20,255,255,0); //14
+	fb->draw_line_clip(xc+15,yc+20,xc+50,yc+40,255,255,0); //1
+	fb->draw_line_clip(xc+50,yc+40,xc+20,yc+10,255,255,0); //2
+	fb->draw_line_clip(xc+20,yc+10,xc+40,yc,255,255,0); //3
+	fb->draw_line_clip(xc+40,yc,xc+20,yc-10,255,255,0); //4
+	fb->draw_line_clip(xc+20,yc-10,xc+25,yc-40,255,255,0); //5
+	fb->draw_line_clip(xc+25,yc-40,xc,yc-15,255,255,0); //6
+	fb->draw_line_clip(xc,yc-15,xc-10,yc-30,255,255,0); //7
+	fb->draw_line_clip(xc-10,yc-30,xc-20,yc-5,255,255,0); //8
+	fb->draw_line_clip(xc-20,yc-5,xc-45,yc-13,255,255,0); //9
+	fb->draw_line_clip(xc-45,yc-13,xc-30,yc+7,255,255,0); //10
+	fb->draw_line_clip(xc-30,yc+7,xc-55,yc+15,255,255,0); //11
+	fb->draw_line_clip(xc-55,yc+15,xc-14,yc+23,255,255,0); //12
+	fb->draw_line_clip(xc-14,yc+23,xc-2,yc+38,255,255,0); //13
+	fb->draw_line_clip(xc-2,yc+38,xc+15,yc+20,255,255,0); //14
 
 	//jeda untuk ledakan
 	usleep(300000);
 
 	//Middle explosion
-	fb->draw_line(xc+20,yc+40,xc+80,yc+65,255,165,0); //1
-	fb->draw_line(xc+80,yc+65,xc+45,yc+12,255,165,0); //2
-	fb->draw_line(xc+45,yc+12,xc+63,yc-5,255,165,0); //3
-	fb->draw_line(xc+63,yc-5,xc+35,yc-17,255,165,0); //4
-	fb->draw_line(xc+35,yc-17,xc+40,yc-60,255,165,0); //5
-	fb->draw_line(xc+40,yc-60,xc,yc-32,255,165,0); //6
-	fb->draw_line(xc,yc-32,xc-13,yc-43,255,165,0); //7
-	fb->draw_line(xc-13,yc-43,xc-25,yc-17,255,165,0); //8
-	fb->draw_line(xc-25,yc-17,xc-65,yc-26,255,165,0); //9
-	fb->draw_line(xc-65,yc-26,xc-52,yc+4,255,165,0); //10
-	fb->draw_line(xc-52,yc+4,xc-70,yc+15,255,165,0); //11
-	fb->draw_line(xc-70,yc+15,xc-18,yc+39,255,165,0); //12
-	fb->draw_line(xc-18,yc+39,xc-8,yc+57,255,165,0); //13
-	fb->draw_line(xc-8,yc+57,xc+20,yc+40,255,165,0); //14
+	fb->draw_line_clip(xc+20,yc+40,xc+80,yc+65,255,165,0); //1
+	fb->draw_line_clip(xc+80,yc+65,xc+45,yc+12,255,165,0); //2
+	fb->draw_line_clip(xc+45,yc+12,xc+63,yc-5,255,165,0); //3
+	fb->draw_line_clip(xc+63,yc-5,xc+35,yc-17,255,165,0); //4
+	fb->draw_line_clip(xc+35,yc-17,xc+40,yc-60,255,165,0); //5
+	fb->draw_line_clip(xc+40,yc-60,xc,yc-32,255,165,0); //6
+	fb->draw_line_clip(xc,yc-32,xc-13,yc-43,255,165,0); //7
+	fb->draw_line_clip(xc-13,yc-43,xc-25,yc-17,255,165,0); //8
+	fb->draw_line_clip(xc-25,yc-17,xc-65,yc-26,255,165,0); //9
+	fb->draw_line_clip(xc-65,yc-26,xc-52,yc+4,255,165,0); //10
+	fb->draw_line_clip(xc-52,yc+4,xc-70,yc+15,255,165,0); //11
+	fb->draw_line_clip(xc-70,yc+15,xc-18,yc+39,255,165,0); //12
+	fb->draw_line_clip(xc-18,yc+39,xc-8,yc+57,255,165,0); //13
+	fb->draw_line_clip(xc-8,yc+57,xc+20,yc+40,255,165,0); //14
 
 	//jeda untuk ledakan
 	usleep(300000);
 
 	//Outer explosion
-	fb->draw_line(xc+25,yc+60,xc+110,yc+95,255,0,0); //1
-	fb->draw_line(xc+110,yc+95,xc+60,yc+10,255,0,0); //2
-	fb->draw_line(xc+60,yc+10,xc+85,yc-10,255,0,0); //3
-	fb->draw_line(xc+85,yc-10,xc+45,yc-22,255,0,0); //4
-	fb->draw_line(xc+45,yc-22,xc+52,yc-72,255,0,0); //5
-	fb->draw_line(xc+52,yc-72,xc,yc-48,255,0,0); //6
-	fb->draw_line(xc,yc-48,xc-18,yc-62,255,0,0); //7
-	fb->draw_line(xc-18,yc-62,xc-34,yc-24,255,0,0); //8
-	fb->draw_line(xc-34,yc-24,xc-80,yc-38,255,0,0); //9
-	fb->draw_line(xc-80,yc-38,xc-65,yc+4,255,0,0); //10
-	fb->draw_line(xc-65,yc+4,xc-87,yc+18,255,0,0); //11
-	fb->draw_line(xc-87,yc+18,xc-20,yc+45,255,0,0); //12
-	fb->draw_line(xc-20,yc+45,xc-10,yc+70,255,0,0); //13
-	fb->draw_line(xc-10,yc+70,xc+25,yc+60,255,0,0); //14
+	fb->draw_line_clip(xc+25,yc+60,xc+110,yc+95,255,0,0); //1
+	fb->draw_line_clip(xc+110,yc+95,xc+60,yc+10,255,0,0); //2
+	fb->draw_line_clip(xc+60,yc+10,xc+85,yc-10,255,0,0); //3
+	fb->draw_line_clip(xc+85,yc-10,xc+45,yc-22,255,0,0); //4
+	fb->draw_line_clip(xc+45,yc-22,xc+52,yc-72,255,0,0); //5
+	fb->draw_line_clip(xc+52,yc-72,xc,yc-48,255,0,0); //6
+	fb->draw_line_clip(xc,yc-48,xc-18,yc-62,255,0,0); //7
+	fb->draw_line_clip(xc-18,yc-62,xc-34,yc-24,255,0,0); //8
+	fb->draw_line_clip(xc-34,yc-24,xc-80,yc-38,255,0,0); //9
+	fb->draw_line_clip(xc-80,yc-38,xc-65,yc+4,255,0,0); //10
+	fb->draw_line_clip(xc-65,yc+4,xc-87,yc+18,255,0,0); //11
+	fb->draw_line_clip(xc-87,yc+18,xc-20,yc+45,255,0,0); //12
+	fb->draw_line_clip(xc-20,yc+45,xc-10,yc+70,255,0,0); //13
+	fb->draw_line_clip(xc-10,yc+70,xc+25,yc+60,255,0,0); //14
 }
 
 void selectPart(float x, float y, int r, int g, int b, int num, bool reset) {
@@ -106,70 +106,70 @@ void selectPart(float x, float y, int r, int g, int b, int num, bool reset) {
 
 	switch(num) {
 		case 1: { //moncong pesawat; x,y sebagai pusat
-			fb->draw_line(x-8,y-3,x+8,y-11,0,0,bbor);
-			fb->draw_line(x-8,y-3,x-8,y+3,0,0,bbor);
-			fb->draw_line(x-8,y+3,x+8,y+11,0,0,bbor);
-			fb->draw_line(x+8,y-11,x+8,y+11,0,0,bbor);
+			fb->draw_line_clip(x-8,y-3,x+8,y-11,0,0,bbor);
+			fb->draw_line_clip(x-8,y-3,x-8,y+3,0,0,bbor);
+			fb->draw_line_clip(x-8,y+3,x+8,y+11,0,0,bbor);
+			fb->draw_line_clip(x+8,y-11,x+8,y+11,0,0,bbor);
 			if (!reset) fb->flood_fill(x,y,r,g,b);
 			break;
 		}
 		case 2: { //badan depan pesawat; x,y sebagai pusat
-			fb->draw_line(x-32,y-11,x+33,y-11,0,0,bbor);
-			fb->draw_line(x-32,y+11,x+33,y+11,0,0,bbor);
-			fb->draw_line(x-32,y-11,x-32,y+11,0,0,bbor);
-			fb->draw_line(x+33,y-11,x+33,y+11,0,0,bbor);
+			fb->draw_line_clip(x-32,y-11,x+33,y-11,0,0,bbor);
+			fb->draw_line_clip(x-32,y+11,x+33,y+11,0,0,bbor);
+			fb->draw_line_clip(x-32,y-11,x-32,y+11,0,0,bbor);
+			fb->draw_line_clip(x+33,y-11,x+33,y+11,0,0,bbor);
 			if (!reset) fb->flood_fill(x,y,r,g,b);
 			break;
 		}
 		case 3: { //sayap atas; x,y sebagai titik kiri bawah sayap
-			fb->draw_line(x,y,x+44,y-46,0,0,bbor);
-			fb->draw_line(x+44,y-46,x+53,y-46,0,0,bbor);
-			fb->draw_line(x+53,y-46,x+29,y-10,0,0,bbor);
-			fb->draw_line(x+29,y-10,x+31,y,0,0,bbor);
-			fb->draw_line(x+31,y,x,y,0,0,bbor);
+			fb->draw_line_clip(x,y,x+44,y-46,0,0,bbor);
+			fb->draw_line_clip(x+44,y-46,x+53,y-46,0,0,bbor);
+			fb->draw_line_clip(x+53,y-46,x+29,y-10,0,0,bbor);
+			fb->draw_line_clip(x+29,y-10,x+31,y,0,0,bbor);
+			fb->draw_line_clip(x+31,y,x,y,0,0,bbor);
 			if (!reset) fb->flood_fill(x+15,y-5,r,g,b);
 			break;
 		}
 		case 4: { //sayap bawah; x,y sebagai titik kiri atas sayap
-			fb->draw_line(x,y,x+44,y+46,0,0,bbor);
-			fb->draw_line(x+44,y+46,x+53,y+46,0,0,bbor);
-			fb->draw_line(x+53,y+46,x+29,y+10,0,0,bbor);
-			fb->draw_line(x+29,y+10,x+31,y,0,0,bbor);
-			fb->draw_line(x+31,y,x,y,0,0,bbor);
+			fb->draw_line_clip(x,y,x+44,y+46,0,0,bbor);
+			fb->draw_line_clip(x+44,y+46,x+53,y+46,0,0,bbor);
+			fb->draw_line_clip(x+53,y+46,x+29,y+10,0,0,bbor);
+			fb->draw_line_clip(x+29,y+10,x+31,y,0,0,bbor);
+			fb->draw_line_clip(x+31,y,x,y,0,0,bbor);
 			if (!reset) fb->flood_fill(x+15,y+5,r,g,b);
 			break;
 		}
 		case 5: { //badan tengah pesawat(diapit sayap); x,y sebagai pusat
-			fb->draw_line(x-15,y-11,x+16,y-11,0,0,bbor);
-			fb->draw_line(x-15,y+11,x+16,y+11,0,0,bbor);
-			fb->draw_line(x-15,y-11,x-15,y+11,0,0,bbor);
-			fb->draw_line(x+16,y-11,x+16,y+11,0,0,bbor);
+			fb->draw_line_clip(x-15,y-11,x+16,y-11,0,0,bbor);
+			fb->draw_line_clip(x-15,y+11,x+16,y+11,0,0,bbor);
+			fb->draw_line_clip(x-15,y-11,x-15,y+11,0,0,bbor);
+			fb->draw_line_clip(x+16,y-11,x+16,y+11,0,0,bbor);
 			if (!reset) fb->flood_fill(x,y,r,g,b);
 			break;
 		}
 		case 6: { //badan belakang pesawat (diapit ekor); x,y sebagai pertengahan antara O dan H
-			fb->draw_line(x,y-9,x+15,y-11,0,0,bbor);
-			fb->draw_line(x+15,y-11,x+15,y+11,0,0,bbor);
-			fb->draw_line(x+15,y+11,x,y+9,0,0,bbor);
-			fb->draw_line(x,y+9,x-42,y+11,0,0,bbor);
-			fb->draw_line(x-42,y+11,x-42,y-11,0,0,bbor);
-			fb->draw_line(x-42,y-11,x,y-9,0,0,bbor);
+			fb->draw_line_clip(x,y-9,x+15,y-11,0,0,bbor);
+			fb->draw_line_clip(x+15,y-11,x+15,y+11,0,0,bbor);
+			fb->draw_line_clip(x+15,y+11,x,y+9,0,0,bbor);
+			fb->draw_line_clip(x,y+9,x-42,y+11,0,0,bbor);
+			fb->draw_line_clip(x-42,y+11,x-42,y-11,0,0,bbor);
+			fb->draw_line_clip(x-42,y-11,x,y-9,0,0,bbor);
 			if (!reset) fb->flood_fill(x,y,r,g,b);
 			break;
 		}
 		case 7: { //ekor atas ; x,y sebagai titik kiri bawah ekor
-			fb->draw_line(x,y,x+13,y-19,0,0,bbor);
-			fb->draw_line(x+13,y-19,x+24,y-19,0,0,bbor);
-			fb->draw_line(x+24,y-19,x+17,y-2,0,0,bbor);
-			fb->draw_line(x+17,y-2,x,y,0,0,bbor);
+			fb->draw_line_clip(x,y,x+13,y-19,0,0,bbor);
+			fb->draw_line_clip(x+13,y-19,x+24,y-19,0,0,bbor);
+			fb->draw_line_clip(x+24,y-19,x+17,y-2,0,0,bbor);
+			fb->draw_line_clip(x+17,y-2,x,y,0,0,bbor);
 			if (!reset) fb->flood_fill(x+7,y-5,r,g,b);
 			break;
 		}
 		case 8: { //ekor bawah ; x,y sebagai titik kiri atas ekor
-			fb->draw_line(x,y,x+13,y+19,0,0,bbor);
-			fb->draw_line(x+13,y+19,x+24,y+19,0,0,bbor);
-			fb->draw_line(x+24,y+19,x+17,y+2,0,0,bbor);
-			fb->draw_line(x+17,y+2,x,y,0,0,bbor);
+			fb->draw_line_clip(x,y,x+13,y+19,0,0,bbor);
+			fb->draw_line_clip(x+13,y+19,x+24,y+19,0,0,bbor);
+			fb->draw_line_clip(x+24,y+19,x+17,y+2,0,0,bbor);
+			fb->draw_line_clip(x+17,y+2,x,y,0,0,bbor);
 			if (!reset) fb->flood_fill(x+7,y+5,r,g,b);
 			break;
 		}
@@ -178,15 +178,15 @@ void selectPart(float x, float y, int r, int g, int b, int num, bool reset) {
 
 void draw_base(int x, int y) {
 
-	fb->draw_line(x, y, x+250, y, 0,112,255);
-	fb->draw_line(x, y, x+70, y-50, 0,112,255);
-	fb->draw_line(x+70, y-50, x+180, y-50, 0,112,255);
-	fb->draw_line(x+180, y-50, x+250, y, 0,112,255);
+	fb->draw_line_clip(x, y, x+250, y, 0,112,255);
+	fb->draw_line_clip(x, y, x+70, y-50, 0,112,255);
+	fb->draw_line_clip(x+70, y-50, x+180, y-50, 0,112,255);
+	fb->draw_line_clip(x+180, y-50, x+250, y, 0,112,255);
 
 
-	fb->draw_line(x+100, y-50, x+100, y-85, 255,255,0);
-	fb->draw_line(x+100, y-85, x+150, y-85, 255,255,0);
-	fb->draw_line(x+150, y-85, x+150, y-50, 255,255,0);
+	fb->draw_line_clip(x+100, y-50, x+100, y-85, 255,255,0);
+	fb->draw_line_clip(x+100, y-85, x+150, y-85, 255,255,0);
+	fb->draw_line_clip(x+150, y-85, x+150, y-50, 255,255,0);
 
 	fb->flood_fill(x+ 25, y-5, 0,112,255);
 	fb->flood_fill(x + 105, y - 55,  255,255,0);
@@ -194,15 +194,15 @@ void draw_base(int x, int y) {
 
 void erase_base(int x, int y) {
 
-	fb->draw_line(x, y, x+250, y, 0,0,0);
-	fb->draw_line(x, y, x+70, y-50, 0,0,0);
-	fb->draw_line(x+70, y-50, x+180, y-50, 0,0,0);
-	fb->draw_line(x+180, y-50, x+250, y, 0,0,0);
+	fb->draw_line_clip(x, y, x+250, y, 0,0,0);
+	fb->draw_line_clip(x, y, x+70, y-50, 0,0,0);
+	fb->draw_line_clip(x+70, y-50, x+180, y-50, 0,0,0);
+	fb->draw_line_clip(x+180, y-50, x+250, y, 0,0,0);
 
 
-	fb->draw_line(x+100, y-50, x+100, y-85, 0,0,0);
-	fb->draw_line(x+100, y-85, x+150, y-85, 0,0,0);
-	fb->draw_line(x+150, y-85, x+150, y-50, 0,0,0);
+	fb->draw_line_clip(x+100, y-50, x+100, y-85, 0,0,0);
+	fb->draw_line_clip(x+100, y-85, x+150, y-85, 0,0,0);
+	fb->draw_line_clip(x+150, y-85, x+150, y-50, 0,0,0);
 
 	fb->reset_fill(x+ 25, y-5, 0,0,0);
 	fb->reset_fill(x + 105, y - 55,  0,0,0);
@@ -322,11 +322,11 @@ void draw_bullet(int xbullet, int y2bullet) {
 	int b = xbullet + 20;
 	int c = xbullet;
 
-	fb->draw_line(a,y2bullet,b,y2bullet, 255,255,255);
-	fb->draw_line(a,y2bullet,a,y2bullet-20, 255,255,255);
-	fb->draw_line(b,y2bullet,b,y2bullet-20, 255,255,255);
-	fb->draw_line(b,y2bullet-20,c,y2bullet-30, 255,255,255);
-	fb->draw_line(a,y2bullet-20,c,y2bullet-30, 255,255,255);
+	fb->draw_line_clip(a,y2bullet,b,y2bullet, 255,255,255);
+	fb->draw_line_clip(a,y2bullet,a,y2bullet-20, 255,255,255);
+	fb->draw_line_clip(b,y2bullet,b,y2bullet-20, 255,255,255);
+	fb->draw_line_clip(b,y2bullet-20,c,y2bullet-30, 255,255,255);
+	fb->draw_line_clip(a,y2bullet-20,c,y2bullet-30, 255,255,255);
 	fb->flood_fill(b -5,y2bullet -5,255,255,255);
 }
 
@@ -335,11 +335,11 @@ void erase_bullet(int xbullet, int y2bullet) {
 	int b = xbullet + 20;
 	int c = xbullet;
 
-	fb->draw_line(a,y2bullet,b,y2bullet, 0,0,0);
-	fb->draw_line(a,y2bullet,a,y2bullet-20, 0,0,0);
-	fb->draw_line(b,y2bullet,b,y2bullet-20, 0,0,0);
-	fb->draw_line(b,y2bullet-20,c,y2bullet-30, 0,0,0);
-	fb->draw_line(a,y2bullet-20,c,y2bullet-30, 0,0,0);
+	fb->draw_line_clip(a,y2bullet,b,y2bullet, 0,0,0);
+	fb->draw_line_clip(a,y2bullet,a,y2bullet-20, 0,0,0);
+	fb->draw_line_clip(b,y2bullet,b,y2bullet-20, 0,0,0);
+	fb->draw_line_clip(b,y2bullet-20,c,y2bullet-30, 0,0,0);
+	fb->draw_line_clip(a,y2bullet-20,c,y2bullet-30, 0,0,0);
 	fb->reset_fill(b -5,y2bullet -5,0,0,0);
 }
 
@@ -425,31 +425,31 @@ void draw_halfcircle(int xc, int yc, int radius, int r, int g, int b) { //mengga
 		fb->put_pixel(xc+y,yc-x,r,g,b);
 		fb->put_pixel(xc-y,yc-x,r,g,b);
 	}
-	fb->draw_line(xc-radius,yc,xc+radius,yc,r,g,b);
+	fb->draw_line_clip(xc-radius,yc,xc+radius,yc,r,g,b);
 }
 
 void paket_parasut(int x, int y, int r, int g, int b) { //menggambar parasut dengan paket
 	if (r==0 && g==0 && b == 0) {
 		fb->reset_fill(x,y,0,0,0);
 		fb->reset_fill(x,y-60,0,0,0);
-		fb->draw_line(x,y-20,x-50,y-50,r,g,b);
-		fb->draw_line(x,y-20,x+50,y-50,r,g,b);
-		fb->draw_line(x,y-20,x-30,y-50,r,g,b);
-		fb->draw_line(x,y-20,x+30,y-50,r,g,b);
-		fb->draw_line(x,y-20,x-10,y-50,r,g,b);
-		fb->draw_line(x,y-20,x+10,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x-50,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x+50,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x-30,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x+30,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x-10,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x+10,y-50,r,g,b);
 	}
 	else {
 		fb->draw_circle(x,y-10,10,r,g,b);
 		fb->flood_fill(x,y-10,0,255,0);
 		draw_halfcircle(x,y-50,50,r,g,b);
 		fb->flood_fill(x,y-60,r,g,b);
-		fb->draw_line(x,y-20,x-50,y-50,r,g,b);
-		fb->draw_line(x,y-20,x+50,y-50,r,g,b);
-		fb->draw_line(x,y-20,x-30,y-50,r,g,b);
-		fb->draw_line(x,y-20,x+30,y-50,r,g,b);
-		fb->draw_line(x,y-20,x-10,y-50,r,g,b);
-		fb->draw_line(x,y-20,x+10,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x-50,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x+50,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x-30,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x+30,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x-10,y-50,r,g,b);
+		fb->draw_line_clip(x,y-20,x+10,y-50,r,g,b);
 	}
 }
 
@@ -474,11 +474,11 @@ void rotating_sayap(int x, int y,int rad, int r, int g, int b){
 		fb->rotate_point(&x3,&y3,rad,x,y);
 		fb->rotate_point(&x4,&y4,rad,x,y);
 		fb->rotate_point(&xf,&yf,rad,x,y);
-		fb->draw_line(x,y,x1,y1,255,255,255);
-		fb->draw_line(x1,y1,x2,y2,255,255,255);
-		fb->draw_line(x2,y2,x3,y3,255,255,255);
-		fb->draw_line(x3,y3,x4,y4,255,255,255);
-		fb->draw_line(x4,y4,x,y,255,255,255);
+		fb->draw_line_clip(x,y,x1,y1,255,255,255);
+		fb->draw_line_clip(x1,y1,x2,y2,255,255,255);
+		fb->draw_line_clip(x2,y2,x3,y3,255,255,255);
+		fb->draw_line_clip(x3,y3,x4,y4,255,255,255);
+		fb->draw_line_clip(x4,y4,x,y,255,255,255);
 		fb->flood_fill(xf,yf,r,g,b);
 		x += 2;
 		y += 2;
@@ -489,10 +489,10 @@ void rotating_sayap(int x, int y,int rad, int r, int g, int b){
 
 void rotating_ekor(int x, int y,int rad, int r, int g, int b){
 
-	fb->draw_line(x,y,x+70,y+5,255,255,255);
-	fb->draw_line(x+70,y+5,x+70,y-35,255,255,255);
-	fb->draw_line(x+70,y-35,x,y-30,255,255,255);
-	fb->draw_line(x,y-30,x,y,255,255,255);
+	fb->draw_line_clip(x,y,x+70,y+5,255,255,255);
+	fb->draw_line_clip(x+70,y+5,x+70,y-35,255,255,255);
+	fb->draw_line_clip(x+70,y-35,x,y-30,255,255,255);
+	fb->draw_line_clip(x,y-30,x,y,255,255,255);
 	fb->flood_fill(x+5,y-5,200,200,200);
 
 	// usleep(100000000);
@@ -513,10 +513,10 @@ void rotating_ekor(int x, int y,int rad, int r, int g, int b){
 		fb->rotate_point(&x2,&y2,rad,x,y);
 		fb->rotate_point(&x3,&y3,rad,x,y);
 		fb->rotate_point(&xf,&yf,rad,x,y);
-		fb->draw_line(x,y,x1,y1,255,255,255);
-		fb->draw_line(x1,y1,x2,y2,255,255,255);
-		fb->draw_line(x2,y2,x3,y3,255,255,255);
-		fb->draw_line(x3,y3,x,y,255,255,255);
+		fb->draw_line_clip(x,y,x1,y1,255,255,255);
+		fb->draw_line_clip(x1,y1,x2,y2,255,255,255);
+		fb->draw_line_clip(x2,y2,x3,y3,255,255,255);
+		fb->draw_line_clip(x3,y3,x,y,255,255,255);
 		fb->flood_fill(xf,yf,r,g,b);
 		x -= 3;
 		y += 3;
