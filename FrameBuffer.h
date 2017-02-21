@@ -272,7 +272,7 @@ class FrameBuffer {
 		}
 
 		void draw_line_clip(int xt1, int yt1, int xt2, int yt2, int r, int g, int b) {
-			printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
+			//printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
 
 			int outcode0 = find_region(xt1, yt1);
 			int outcode1 = find_region(xt2, yt2);
@@ -341,12 +341,17 @@ class FrameBuffer {
 				yt1 = y1;
 				yt2 = y2;
 
-				// printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
+				printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
 				remap_point(&xt1, &yt1);
 				remap_point(&xt2, &yt2);
-				// printf("remap %d %d %d %d\n", xt1, yt1, xt2, yt2);
+				printf("remap %d %d %d %d\n", xt1, yt1, xt2, yt2);
 				draw_line(xt1, yt1, xt2, yt2, r, g, b);
 			}
+		}
+		
+		void flood_fill_clip(int x, int y, int r, int g, int b) {
+			remap_point(&x,&y);
+			flood_fill(x,y,r,g,b);
 		}
 };
 
