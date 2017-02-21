@@ -565,29 +565,29 @@ void drawpesawat(){
 	int n = 0;
 	while (1)
 	{
-		fb->draw_line(deltax+0,3+deltay,deltax+16, 11+deltay,0,0,150);
-		fb->draw_line(deltax+16,11+deltay,deltax+81,11+deltay,0,0,150);
-		fb->draw_line(deltax+81,11+deltay,deltax+125,57+deltay,0,0,150);
-		fb->draw_line(deltax+125,57+deltay,deltax+134,57+deltay,0,0,150);
-		fb->draw_line(deltax+134,57+deltay,deltax+110,21+deltay,0,0,150);
-		fb->draw_line(deltax+110,21+deltay,deltax+112,11+deltay,0,0,150);
-		fb->draw_line(deltax+112,11+deltay,deltax+154,9+deltay,0,0,150);
-		fb->draw_line(deltax+154,9+deltay,deltax+167,28+deltay,0,0,150);
-		fb->draw_line(deltax+167,28+deltay,deltax+176,28+deltay,0,0,150);
-		fb->draw_line(deltax+176,28+deltay,deltax+169,11+deltay,0,0,150);
-		fb->draw_line(deltax+169,11+deltay,deltax+169,-11+deltay,0,0,150);
-		fb->draw_line(deltax+169,-11+deltay,deltax+176,-28+deltay,0,0,150);
-		fb->draw_line(deltax+176,-28+deltay,deltax+167,-28+deltay,0,0,150);
-		fb->draw_line(deltax+167,-28+deltay,deltax+154,-9+deltay,0,0,150);
-		fb->draw_line(deltax+154,-9+deltay,deltax+112,-11+deltay,0,0,150);
-		fb->draw_line(deltax+112,-11+deltay,deltax+110,-21+deltay,0,0,150);
-		fb->draw_line(deltax+110,-21+deltay,deltax+134,-57+deltay,0,0,150);
-		fb->draw_line(deltax+134,-57+deltay,deltax+125,-57+deltay,0,0,150);
-		fb->draw_line(deltax+125,-57+deltay,deltax+81,-11+deltay,0,0,150);
-		fb->draw_line(deltax+81,-11+deltay,deltax+16,-11+deltay,0,0,150);
-		fb->draw_line(deltax+16,-11+deltay,deltax+0,-3+deltay,0,0,150);
-		fb->draw_line(deltax+0,3+deltay,deltax+0,0+deltay,0,0,150);
-		fb->draw_line(deltax+0,-3+deltay,deltax+0,0+deltay,0,0,150);
+		fb->draw_line_clip(deltax+0,3+deltay,deltax+16, 11+deltay,0,0,150);
+		fb->draw_line_clip(deltax+16,11+deltay,deltax+81,11+deltay,0,0,150);
+		fb->draw_line_clip(deltax+81,11+deltay,deltax+125,57+deltay,0,0,150);
+		fb->draw_line_clip(deltax+125,57+deltay,deltax+134,57+deltay,0,0,150);
+		fb->draw_line_clip(deltax+134,57+deltay,deltax+110,21+deltay,0,0,150);
+		fb->draw_line_clip(deltax+110,21+deltay,deltax+112,11+deltay,0,0,150);
+		fb->draw_line_clip(deltax+112,11+deltay,deltax+154,9+deltay,0,0,150);
+		fb->draw_line_clip(deltax+154,9+deltay,deltax+167,28+deltay,0,0,150);
+		fb->draw_line_clip(deltax+167,28+deltay,deltax+176,28+deltay,0,0,150);
+		fb->draw_line_clip(deltax+176,28+deltay,deltax+169,11+deltay,0,0,150);
+		fb->draw_line_clip(deltax+169,11+deltay,deltax+169,-11+deltay,0,0,150);
+		fb->draw_line_clip(deltax+169,-11+deltay,deltax+176,-28+deltay,0,0,150);
+		fb->draw_line_clip(deltax+176,-28+deltay,deltax+167,-28+deltay,0,0,150);
+		fb->draw_line_clip(deltax+167,-28+deltay,deltax+154,-9+deltay,0,0,150);
+		fb->draw_line_clip(deltax+154,-9+deltay,deltax+112,-11+deltay,0,0,150);
+		fb->draw_line_clip(deltax+112,-11+deltay,deltax+110,-21+deltay,0,0,150);
+		fb->draw_line_clip(deltax+110,-21+deltay,deltax+134,-57+deltay,0,0,150);
+		fb->draw_line_clip(deltax+134,-57+deltay,deltax+125,-57+deltay,0,0,150);
+		fb->draw_line_clip(deltax+125,-57+deltay,deltax+81,-11+deltay,0,0,150);
+		fb->draw_line_clip(deltax+81,-11+deltay,deltax+16,-11+deltay,0,0,150);
+		fb->draw_line_clip(deltax+16,-11+deltay,deltax+0,-3+deltay,0,0,150);
+		fb->draw_line_clip(deltax+0,3+deltay,deltax+0,0+deltay,0,0,150);
+		fb->draw_line_clip(deltax+0,-3+deltay,deltax+0,0+deltay,0,0,150);
 
 		fb->flood_fill(deltax+90,deltay,0,0,150);
 

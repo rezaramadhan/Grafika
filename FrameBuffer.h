@@ -272,7 +272,7 @@ class FrameBuffer {
 		}
 
 		void draw_line_clip(int xt1, int yt1, int xt2, int yt2, int r, int g, int b) {
-			printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
+			//printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
 
 			int outcode0 = find_region(xt1, yt1);
 			int outcode1 = find_region(xt2, yt2);
@@ -348,6 +348,71 @@ class FrameBuffer {
 				draw_line(xt1, yt1, xt2, yt2, r, g, b);
 			}
 		}
+
+		void drawpesawat(){
+
+	int deltay = 60 ;
+	//FrameBuffer *fb = new FrameBuffer;
+	int deltax = 1100;
+	int n = 0;
+	//while (1)
+	//{
+		draw_line_clip(deltax+0,3+deltay,deltax+16, 11+deltay,0,0,150);
+		draw_line_clip(deltax+16,11+deltay,deltax+81,11+deltay,0,0,150);
+		draw_line_clip(deltax+81,11+deltay,deltax+125,57+deltay,0,0,150);
+		draw_line_clip(deltax+125,57+deltay,deltax+134,57+deltay,0,0,150);
+		draw_line_clip(deltax+134,57+deltay,deltax+110,21+deltay,0,0,150);
+		draw_line_clip(deltax+110,21+deltay,deltax+112,11+deltay,0,0,150);
+		draw_line_clip(deltax+112,11+deltay,deltax+154,9+deltay,0,0,150);
+		draw_line_clip(deltax+154,9+deltay,deltax+167,28+deltay,0,0,150);
+		draw_line_clip(deltax+167,28+deltay,deltax+176,28+deltay,0,0,150);
+		draw_line_clip(deltax+176,28+deltay,deltax+169,11+deltay,0,0,150);
+		draw_line_clip(deltax+169,11+deltay,deltax+169,-11+deltay,0,0,150);
+		draw_line_clip(deltax+169,-11+deltay,deltax+176,-28+deltay,0,0,150);
+		draw_line_clip(deltax+176,-28+deltay,deltax+167,-28+deltay,0,0,150);
+		draw_line_clip(deltax+167,-28+deltay,deltax+154,-9+deltay,0,0,150);
+		draw_line_clip(deltax+154,-9+deltay,deltax+112,-11+deltay,0,0,150);
+		draw_line_clip(deltax+112,-11+deltay,deltax+110,-21+deltay,0,0,150);
+		draw_line_clip(deltax+110,-21+deltay,deltax+134,-57+deltay,0,0,150);
+		draw_line_clip(deltax+134,-57+deltay,deltax+125,-57+deltay,0,0,150);
+		draw_line_clip(deltax+125,-57+deltay,deltax+81,-11+deltay,0,0,150);
+		draw_line_clip(deltax+81,-11+deltay,deltax+16,-11+deltay,0,0,150);
+		draw_line_clip(deltax+16,-11+deltay,deltax+0,-3+deltay,0,0,150);
+		draw_line_clip(deltax+0,3+deltay,deltax+0,0+deltay,0,0,150);
+		draw_line_clip(deltax+0,-3+deltay,deltax+0,0+deltay,0,0,150);
+		//fb->flood_fill(deltax+90,deltay,0,0,150);
+
+		//usleep(100000);
+
+		//fb->reset_fill(deltax+90,deltay,0,0,0);
+		//if (isdestroyed) {
+		//	break;
+		//}
+
+		//deltax = deltax-13;
+		//if (deltax <= 200) {
+		//	deltax = 1100;
+		//}
+		//xFront = deltax;
+		//printf("%d\n", xFront);
+	//}
+	// usleep(10000000);
+	//thread t1(draw_parasut,deltax - 50,deltay);
+	//thread t2(bounce, deltax - 100, deltay);
+	//thread t3(rotating_sayap, deltax + 200, deltay, 40, 100, 100, 200);
+	//thread t4(rotating_ekor, deltax + 300, deltay, -40, 100, 100, 200);
+	// // thread t2(drawPecahan,deltax-200,deltay+100, 400,500, 255,255,255, 2);
+	// // thread t3(drawPecahan,deltax-100,deltay+100, 500,500, 255,255,255, 3);
+	// // thread t4(drawPecahan,deltax+100,deltay+100, 600,500, 255,255,255, 6);
+	// // thread t5(drawPecahan,deltax+200,deltay+100, 700,500, 255,255,255, 7);
+	//t1.join();
+	//t2.join();
+	//t3.join();
+	//t4.join();
+}
+
+
+	
 };
 
 
