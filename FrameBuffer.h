@@ -130,7 +130,7 @@ class FrameBuffer {
 
 			}
 		}
-		
+
 		void flood_fill_clip(int x, int y, int r, int g, int b) {
 			remap_point(&x,&y);
 			flood_fill(x,y,r,g,b);
@@ -183,7 +183,7 @@ class FrameBuffer {
 			remap_point(&x,&y);
 			reset_fill(x,y,r,g,b);
 		}
-		
+
 
 		void reset_fill(int x, int y, int r, int g, int b) {
 			if (!(is_black(x,y))) {
@@ -247,6 +247,13 @@ class FrameBuffer {
 			draw_line(vxoffset+vxsize, vyoffset, vxoffset+vxsize, vyoffset+vysize, 55,55,55);
 			draw_line(vxoffset+vxsize, vyoffset+vysize, vxoffset, vyoffset+vysize, 55,55,55);
 			draw_line(vxoffset, vyoffset+vysize, vxoffset ,vyoffset ,55,55,55);
+		}
+
+		void clear_view() {
+			draw_line(vxoffset, vyoffset, vxoffset + vxsize, vyoffset, 0,0,0);
+			draw_line(vxoffset+vxsize, vyoffset, vxoffset+vxsize, vyoffset+vysize, 0,0,0);
+			draw_line(vxoffset+vxsize, vyoffset+vysize, vxoffset, vyoffset+vysize, 0,0,0);
+			draw_line(vxoffset, vyoffset+vysize, vxoffset ,vyoffset ,0,0,0);
 		}
 
 		void remap_point(int *x, int *y) {
@@ -352,15 +359,15 @@ class FrameBuffer {
 				yt1 = y1;
 				yt2 = y2;
 
-				printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
+				//printf("awal %d %d %d %d\n", xt1, yt1, xt2, yt2);
 				remap_point(&xt1, &yt1);
 				remap_point(&xt2, &yt2);
-				printf("remap %d %d %d %d\n", xt1, yt1, xt2, yt2);
+				//printf("remap %d %d %d %d\n", xt1, yt1, xt2, yt2);
 				draw_line(xt1, yt1, xt2, yt2, r, g, b);
 			}
 		}
-		
-		
+
+
 		void drawpesawat(){
 
 	int deltay = 60 ;
@@ -423,7 +430,7 @@ class FrameBuffer {
 	//t4.join();
 }
 
-	
+
 };
 
 
