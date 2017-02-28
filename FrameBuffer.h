@@ -14,8 +14,10 @@
 #define BOTTOM 4
 #define RIGHT 2
 #define LEFT 1
-#define IMG_X_SIZE 484
-#define IMG_Y_SIZE 586
+#define IMG_X_SIZE 400
+#define IMG_Y_SIZE 500
+#define MINIMAP_X_LOC 800
+#define MINIMAP_Y_LOC 90
 using namespace std;
 
 class FrameBuffer {
@@ -1311,6 +1313,48 @@ class FrameBuffer {
 			draw_line_clip(wxoffset+wxsize, wyoffset, wxoffset+wxsize, wyoffset+wysize, 0,100,0);
 			draw_line_clip(wxoffset+wxsize, wyoffset+wysize, wxoffset, wyoffset+wysize, 0,100,0);
 			draw_line_clip(wxoffset, wyoffset+wysize, wxoffset ,wyoffset, 0,100,0);
+		}
+
+		void erase_minimap(int x, int y, int xsize, int ysize) {
+			int oldvxsize = vxsize;
+			int oldvysize = vysize;
+			int oldvxoffset = vxoffset;
+			int oldvyoffset = vyoffset;
+
+			int oldwxsize = wxsize;
+			int oldwysize = wysize;
+			int oldwxoffset = wxoffset;
+			int oldwyoffset = wyoffset;
+
+			vxsize = xsize;
+			vysize = ysize;
+			vxoffset = x;
+			vyoffset = y;
+			wxsize = IMG_X_SIZE;
+			wysize = IMG_Y_SIZE;
+			wxoffset = 0;
+			wyoffset = 0;
+			draw_view();
+			erase_window(oldwxoffset, oldwyoffset, oldwxsize, oldwysize);
+			draw_street_clip(0,0,0);
+			draw_bangunan_clip(0,0,0);
+
+			wxsize = oldwxsize;
+			wysize = oldwysize;
+			vxsize = oldvxsize;
+			vysize = oldvysize;
+
+			wxoffset = oldwxoffset;
+			wyoffset = oldwyoffset;
+			vxoffset = oldvxoffset;
+			vyoffset = oldvyoffset;
+		}
+
+		void erase_window(int wxoffset, int wyoffset, int wxsize, int wysize) {
+			draw_line_clip(wxoffset, wyoffset, wxoffset + wxsize, wyoffset, 0, 0, 0);
+			draw_line_clip(wxoffset+wxsize, wyoffset, wxoffset+wxsize, wyoffset+wysize, 0,0,0);
+			draw_line_clip(wxoffset+wxsize, wyoffset+wysize, wxoffset, wyoffset+wysize, 0,0,0);
+			draw_line_clip(wxoffset, wyoffset+wysize, wxoffset ,wyoffset, 0,0,0);
 		}
 };
 
