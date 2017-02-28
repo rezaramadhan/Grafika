@@ -14,7 +14,8 @@
 #define BOTTOM 4
 #define RIGHT 2
 #define LEFT 1
-
+#define IMG_X_SIZE 484
+#define IMG_Y_SIZE 586
 using namespace std;
 
 class FrameBuffer {
@@ -243,10 +244,10 @@ class FrameBuffer {
 		}
 
 		void draw_view() {
-			draw_line(vxoffset, vyoffset, vxoffset + vxsize, vyoffset, 55, 55, 55);
-			draw_line(vxoffset+vxsize, vyoffset, vxoffset+vxsize, vyoffset+vysize, 55,55,55);
-			draw_line(vxoffset+vxsize, vyoffset+vysize, vxoffset, vyoffset+vysize, 55,55,55);
-			draw_line(vxoffset, vyoffset+vysize, vxoffset ,vyoffset ,55,55,55);
+			draw_line(vxoffset, vyoffset, vxoffset + vxsize, vyoffset, 22, 22, 22);
+			draw_line(vxoffset+vxsize, vyoffset, vxoffset+vxsize, vyoffset+vysize, 22,22,22);
+			draw_line(vxoffset+vxsize, vyoffset+vysize, vxoffset, vyoffset+vysize, 22,22,22);
+			draw_line(vxoffset, vyoffset+vysize, vxoffset ,vyoffset ,22,22,22);
 		}
 
 		void clear_view() {
@@ -432,7 +433,7 @@ class FrameBuffer {
 
 		void draw_bangunan(){
 
-		draw_line(234,235,244,235,255,255,255);
+			draw_line(234,235,244,235,255,255,255);
 			draw_line(244,235,244,238,255,255,255);
 			draw_line(244,238,302,238,255,255,255);
 			draw_line(302,238,302,250,255,255,255);
@@ -562,7 +563,7 @@ class FrameBuffer {
 			draw_line(284,183,284,195,255,255,255);
 			draw_line(284,195,267,196,255,255,255);
 			draw_line(267,196,268,283,255,255,255);
-			
+
 			//Kelompok 5
 			//Kelompok 6
 			// CC Barat
@@ -582,7 +583,7 @@ class FrameBuffer {
 			draw_line(147,304,127,304,255,255,255);
 			draw_line(127,304,127,288,255,255,255);
 			draw_line(127,288,147,288,255,255,255);
-			
+
 			//Kelompok 7
 			//Teknik Sipil
 			draw_line(62,272,86,272,255,255,255);
@@ -885,6 +886,431 @@ class FrameBuffer {
 			draw_line(80,16,48,16,128,128,128);
 			draw_line(48,16,21,50,128,128,128);
 			draw_line(21,50,8,280,128,128,128);
+		}
+
+		void draw_bangunan_clip(int r, int g, int b){
+
+			draw_line_clip(234,235,244,235,r,g,b);
+			draw_line_clip(244,235,244,238,r,g,b);
+			draw_line_clip(244,238,302,238,r,g,b);
+			draw_line_clip(302,238,302,250,r,g,b);
+			draw_line_clip(302,250,286,250,r,g,b);
+			draw_line_clip(286,250,286,253,r,g,b);
+			draw_line_clip(286,253,280,253,r,g,b);
+			draw_line_clip(280,253,280,250,r,g,b);
+			draw_line_clip(280,250,244,250,r,g,b);
+			draw_line_clip(244,250,244,253,r,g,b);
+			draw_line_clip(244,253,234,253,r,g,b);
+			draw_line_clip(234,253,234,235,r,g,b);
+
+			// L. IX A
+			draw_line_clip(234,259,269,259,r,g,b);
+			draw_line_clip(269,259,269,273,r,g,b);
+			draw_line_clip(269,273,250,273,r,g,b);
+			draw_line_clip(250,273,250,282,r,g,b);
+			draw_line_clip(250,282,234,282,r,g,b);
+			draw_line_clip(234,282,234,259,r,g,b);
+
+			// L. IX C
+			draw_line_clip(272,259,304,259,r,g,b);
+			draw_line_clip(304,259,304,273,r,g,b);
+			draw_line_clip(304,273,272,273,r,g,b);
+			draw_line_clip(272,273,272,259,r,g,b);
+
+			// Kotak Coklat kecil
+			draw_line_clip(267,274,275,274,r,g,b);
+			draw_line_clip(275,274,275,281,r,g,b);
+			draw_line_clip(275,281,267,281,r,g,b);
+			draw_line_clip(267,281,267,274,r,g,b);
+
+			// L. IX B
+			draw_line_clip(272,281,304,281,r,g,b);
+			draw_line_clip(304,281,304,295,r,g,b);
+			draw_line_clip(304,295,272,295,r,g,b);
+			draw_line_clip(272,295,272,281,r,g,b);
+
+			// merah besar
+			draw_line_clip(243,282,269,282,r,g,b);
+			draw_line_clip(269,282,269,295,r,g,b);
+			draw_line_clip(269,295,242,295,r,g,b);
+			draw_line_clip(242,295,243,282,r,g,b);
+
+			// merah kecil 1
+			draw_line_clip(247,298,256,298,r,g,b);
+			draw_line_clip(256,298,256,311,r,g,b);
+			draw_line_clip(256,311,247,311,r,g,b);
+			draw_line_clip(247,311,247,298,r,g,b);
+
+			// merah kecil 2
+			draw_line_clip(258,298,268,298,r,g,b);
+			draw_line_clip(268,298,268,311,r,g,b);
+			draw_line_clip(268,311,258,311,r,g,b);
+			draw_line_clip(258,311,258,298,r,g,b);
+
+			//merah kecil 3
+			draw_line_clip(256,312,268,312,r,g,b);
+			draw_line_clip(268,312,268,320,r,g,b);
+			draw_line_clip(268,320,256,320,r,g,b);
+			draw_line_clip(256,320,256,312,r,g,b);
+
+			// merah tulisan aneh
+			draw_line_clip(270,300,280,300,r,g,b);
+			draw_line_clip(280,300,280,306,r,g,b);
+			draw_line_clip(280,306,282,306,r,g,b);
+			draw_line_clip(282,306,282,314,r,g,b);
+			draw_line_clip(282,314,284,314,r,g,b);
+			draw_line_clip(284,314,270,325,r,g,b);
+			draw_line_clip(270,325,270,300,r,g,b);
+
+			//Kelompok 4
+			//Lab UMH
+			draw_line_clip(272,177,318,177,r,g,b);
+			draw_line_clip(318,177,318,164,r,g,b);
+			draw_line_clip(318,164,272,164,r,g,b);
+			draw_line_clip(272,164,272,177,r,g,b);
+
+			//GKU Timur
+			draw_line_clip(284,180,318,180,r,g,b);
+			draw_line_clip(318,180,318,195,r,g,b);
+			draw_line_clip(318,195,312,196,r,g,b);
+			draw_line_clip(312,196,312,192,r,g,b);
+			draw_line_clip(312,192,298,192,r,g,b);
+			draw_line_clip(298,192,298,196,r,g,b);
+			draw_line_clip(298,196,284,196,r,g,b);
+			draw_line_clip(284,196,284,180,r,g,b);
+
+			// M Tek Geodesi
+			draw_line_clip(308,197,321,197,r,g,b);
+			draw_line_clip(321,197,321,212,r,g,b);
+			draw_line_clip(321,212,308,212,r,g,b);
+			draw_line_clip(308,212,308,197,r,g,b);
+
+			//M ?
+			draw_line_clip(308,212,316,212,r,g,b);
+			draw_line_clip(316,212,316,225,r,g,b);
+			draw_line_clip(316,225,308,225,r,g,b);
+			draw_line_clip(308,225,308,212,r,g,b);
+
+			// M ?2
+			draw_line_clip(310,228,316,228,r,g,b);
+			draw_line_clip(316,228,316,225,r,g,b);
+			draw_line_clip(316,225,321,225,r,g,b);
+			draw_line_clip(321,225,321,230,r,g,b);
+			draw_line_clip(321,230,318,230,r,g,b);
+			draw_line_clip(318,230,318,233,r,g,b);
+			draw_line_clip(318,233,321,233,r,g,b);
+			draw_line_clip(321,233,321,236,r,g,b);
+			draw_line_clip(321,236,316,236,r,g,b);
+			draw_line_clip(316,236,316,234,r,g,b);
+			draw_line_clip(316,234,310,233,r,g,b);
+			draw_line_clip(310,233,310,228,r,g,b);
+
+			// Area parkir
+			draw_line_clip(268,200,297,200,r,g,b);
+			draw_line_clip(297,200,297,225,r,g,b);
+			draw_line_clip(297,225,268,225,r,g,b);
+			draw_line_clip(268,225,268,225,r,g,b);
+
+			// AP
+			draw_line_clip(268,283,277,183,r,g,b);
+			draw_line_clip(277,183,277,177,r,g,b);
+			draw_line_clip(277,177,281,177,r,g,b);
+			draw_line_clip(281,177,281,182,r,g,b);
+			draw_line_clip(281,182,284,183,r,g,b);
+			draw_line_clip(284,183,284,195,r,g,b);
+			draw_line_clip(284,195,267,196,r,g,b);
+			draw_line_clip(267,196,268,283,r,g,b);
+
+			//Kelompok 5
+			//Kelompok 6
+			// CC Barat
+			draw_line_clip(143,240,174,240,r,g,b);
+			draw_line_clip(174,240,143,251,r,g,b);
+			draw_line_clip(143,251,174,251,r,g,b);
+			draw_line_clip(174,251,143,240,r,g,b);
+
+			// Lap basket
+			draw_line_clip(146,256,170,256,r,g,b);
+			draw_line_clip(170,256,146,287,r,g,b);
+			draw_line_clip(146,287,170,287,r,g,b);
+			draw_line_clip(170,287,146,256,r,g,b);
+
+			// Gedung ??
+			draw_line_clip(147,288,147,304,r,g,b);
+			draw_line_clip(147,304,127,304,r,g,b);
+			draw_line_clip(127,304,127,288,r,g,b);
+			draw_line_clip(127,288,147,288,r,g,b);
+
+			//Kelompok 7
+			//Teknik Sipil
+			draw_line_clip(62,272,86,272,r,g,b);
+			draw_line_clip(86,272,86,281,r,g,b);
+			draw_line_clip(86,281,74,281,r,g,b);
+			draw_line_clip(74,281,74,285,r,g,b);
+			draw_line_clip(74,285,111,285,r,g,b);
+			draw_line_clip(111,285,111,280,r,g,b);
+			draw_line_clip(111,280,125,280,r,g,b);
+			draw_line_clip(125,280,125,308,r,g,b);
+			draw_line_clip(125,308,70,308,r,g,b);
+			draw_line_clip(70,308,70,299,r,g,b);
+			draw_line_clip(70,299,98,299,r,g,b);
+			draw_line_clip(98,299,98,294,r,g,b);
+			draw_line_clip(98,294,62,294,r,g,b);
+			draw_line_clip(62,294,62,272,r,g,b);
+
+			//Fisika HIMAFI
+			draw_line_clip(60,233,125,233,r,g,b);
+			draw_line_clip(125,233,125,277,r,g,b);
+			draw_line_clip(125,277,89,277,r,g,b);
+			draw_line_clip(89,277,89,269,r,g,b);
+			draw_line_clip(89,269,118,269,r,g,b);
+			draw_line_clip(118,269,118,266,r,g,b);
+			draw_line_clip(118,266,60,266,r,g,b);
+			draw_line_clip(60,266,60,233,r,g,b);
+
+			//Kelompok 8
+			//Kelompok 9
+			//Kelompok 13
+			// A
+			draw_line_clip(30,111,78,111,r,g,b);
+			draw_line_clip(78,111,78,138,r,g,b);
+			draw_line_clip(78,138,30,138,r,g,b);
+			draw_line_clip(30,138,30,111,r,g,b);
+
+			// B
+			draw_line_clip(30,140,55,140,r,g,b);
+			draw_line_clip(55,140,55,153,r,g,b);
+			draw_line_clip(55,153,30,153,r,g,b);
+			draw_line_clip(30,153,30,140,r,g,b);
+
+			// C
+			draw_line_clip(30,155,55,155,r,g,b);
+			draw_line_clip(55,155,55,158,r,g,b);
+			draw_line_clip(55,158,65,158,r,g,b);
+			draw_line_clip(65,158,65,153,r,g,b);
+			draw_line_clip(65,153,75,153,r,g,b);
+			draw_line_clip(75,153,75,169,r,g,b);
+			draw_line_clip(75,169,65,169,r,g,b);
+			draw_line_clip(65,169,65,166,r,g,b);
+			draw_line_clip(65,166,55,166,r,g,b);
+			draw_line_clip(55,166,55,169,r,g,b);
+			draw_line_clip(55,169,30,169,r,g,b);
+			draw_line_clip(30,169,30,155,r,g,b);
+
+			// D
+			draw_line_clip(46,94,71,94,r,g,b);
+			draw_line_clip(71,94,71,99,r,g,b);
+			draw_line_clip(71,99,73,99,r,g,b);
+			draw_line_clip(73,99,73,103,r,g,b);
+			draw_line_clip(73,103,71,103,r,g,b);
+			draw_line_clip(71,103,71,108,r,g,b);
+			draw_line_clip(71,108,47,108,r,g,b);
+			draw_line_clip(47,108,46,99,r,g,b);
+			draw_line_clip(46,99,33,99,r,g,b);
+			draw_line_clip(33,99,33,97,r,g,b);
+			draw_line_clip(33,97,46,94,r,g,b);
+
+			// Kelompok 14
+			// 1
+			draw_line_clip(52,80,77,80,r,g,b);
+			draw_line_clip(77,80,77,89,r,g,b);
+			draw_line_clip(77,89,53,89,r,g,b);
+			draw_line_clip(53,89,52,80,r,g,b);
+			// 2
+			draw_line_clip(49,72,53,72,r,g,b);
+			draw_line_clip(53,72,52,89,r,g,b);
+			draw_line_clip(52,89,49,89,r,g,b);
+			draw_line_clip(49,89,49,72,r,g,b);
+			// 3
+			draw_line_clip(34,75,48,75,r,g,b);
+			draw_line_clip(48,75,48,85,r,g,b);
+			draw_line_clip(48,85,34,85,r,g,b);
+			draw_line_clip(34,85,34,75,r,g,b);
+			//4
+			draw_line_clip(39,62,85,62,r,g,b);
+			draw_line_clip(85,62,85,71,r,g,b);
+			draw_line_clip(85,71,39,71,r,g,b);
+			draw_line_clip(39,71,39,62,r,g,b);
+			//5
+			draw_line_clip(49,52,97,52,r,g,b);
+			draw_line_clip(97,52,97,59,r,g,b);
+			draw_line_clip(97,59,49,59,r,g,b);
+			draw_line_clip(49,59,49,52,r,g,b);
+
+			//6
+			draw_line_clip(48,37,97,37,r,g,b);
+			draw_line_clip(97,37,97,46,r,g,b);
+			draw_line_clip(97,46,48,46,r,g,b);
+			draw_line_clip(48,46,48,37,r,g,b);
+			// 7
+			draw_line_clip(80,23,95,23,r,g,b);
+			draw_line_clip(95,23,91,37,r,g,b);
+			draw_line_clip(91,37,84,37,r,g,b);
+			draw_line_clip(84,37,80,23,r,g,b);
+
+			//Kelompok 16
+			// GSG
+			draw_line_clip(113,46,142,46,r,g,b);
+			draw_line_clip(142,46,142,74,r,g,b);
+			draw_line_clip(142,74,113,74,r,g,b);
+			draw_line_clip(113,74,113,46,r,g,b);
+
+			// KPP
+			draw_line_clip(140,31,163,31,r,g,b);
+			draw_line_clip(163,31,169,37,r,g,b);
+			draw_line_clip(169,37,169,75,r,g,b);
+			draw_line_clip(169,75,145,75,r,g,b);
+			draw_line_clip(145,75,145,42,r,g,b);
+			draw_line_clip(145,42,140,42,r,g,b);
+			draw_line_clip(140,42,140,31,r,g,b);
+
+			//Tunnel
+			draw_line_clip(170,35,174,25,r,g,b);
+			draw_line_clip(174,25,175,33,r,g,b);
+			draw_line_clip(175,33,185,33,r,g,b);
+			draw_line_clip(185,33,186,35,r,g,b);
+			draw_line_clip(186,35,190,33,r,g,b);
+			draw_line_clip(190,33,190,78,r,g,b);
+			draw_line_clip(190,78,186,78,r,g,b);
+			draw_line_clip(186,78,185,80,r,g,b);
+			draw_line_clip(185,80,175,80,r,g,b);
+			draw_line_clip(175,80,174,78,r,g,b);
+			draw_line_clip(174,78,170,78,r,g,b);
+			draw_line_clip(170,78,170,35,r,g,b);
+
+			//Perpus
+			draw_line_clip(192,49,194,49,r,g,b);
+			draw_line_clip(194,49,194,40,r,g,b);
+			draw_line_clip(194,40,200,35,r,g,b);
+			draw_line_clip(200,35,216,35,r,g,b);
+			draw_line_clip(216,35,221,40,r,g,b);
+			draw_line_clip(221,40,221,49,r,g,b);
+			draw_line_clip(221,49,227,51,r,g,b);
+			draw_line_clip(227,51,227,59,r,g,b);
+			draw_line_clip(227,59,225,29,r,g,b);
+			draw_line_clip(225,29,225,68,r,g,b);
+			draw_line_clip(225,68,218,74,r,g,b);
+			draw_line_clip(218,74,201,74,r,g,b);
+			draw_line_clip(201,74,197,68,r,g,b);
+			draw_line_clip(197,68,197,58,r,g,b);
+			draw_line_clip(197,58,192,57,r,g,b);
+			draw_line_clip(192,57,192,49,r,g,b);
+
+			// AP
+			draw_line_clip(231,33,263,33,r,g,b);
+			draw_line_clip(263,33,263,71,r,g,b);
+			draw_line_clip(263,71,258,71,r,g,b);
+			draw_line_clip(258,71,258,77,r,g,b);
+			draw_line_clip(258,77,231,77,r,g,b);
+			draw_line_clip(231,77,231,33,r,g,b);
+		}
+
+		void draw_street_clip(int r, int g, int b){
+			//Jl.Taman Sari - Ganeca
+			draw_line_clip(45,404,42,414,r,g,b);
+			draw_line_clip(45,404,8,280,r,g,b);
+			draw_line_clip(45,404,151,376,r,g,b);
+			draw_line_clip(151,376,148,414,r,g,b);
+			draw_line_clip(151,376,181,372,r,g,b);
+			draw_line_clip(181,372,287,402,r,g,b);
+			draw_line_clip(287,402,287,414,r,g,b);
+			draw_line_clip(287,402,356,402,r,g,b);
+
+			//itb kanan
+			draw_line_clip(306,231,308,297,r,g,b);
+			draw_line_clip(308,297,292,300,r,g,b);
+			draw_line_clip(292,300,291,335,r,g,b);
+			draw_line_clip(291,335,287,402,r,g,b);
+			draw_line_clip(266,231,266,12,r,g,b);
+			draw_line_clip(266,50,341,56,r,g,b);
+			draw_line_clip(266,111,326,116,r,g,b);
+			draw_line_clip(266,132,326,137,r,g,b);
+
+
+			//itb tengah
+			draw_line_clip(181,372,181,335,r,g,b);
+			draw_line_clip(181,335,71,335,r,g,b);
+			draw_line_clip(181,335,181,231,r,g,b);
+			draw_line_clip(181,231,58,231,r,g,b);
+			draw_line_clip(58,231,23,231,r,g,b);
+			draw_line_clip(181,231,306,231,r,g,b);
+			draw_line_clip(181,335,291,335,r,g,b);
+			draw_line_clip(181,231,181,160,r,g,b);
+			draw_line_clip(181,160,181,83,r,g,b);
+			draw_line_clip(181,29,181,16,r,g,b);
+			draw_line_clip(80,16,181,16,r,g,b);
+			draw_line_clip(181,16,219,1,r,g,b);
+
+
+			//itb kiri
+			draw_line_clip(23,231,23,294,r,g,b);
+			draw_line_clip(23,294,44,330,r,g,b);
+			draw_line_clip(44,330,71,335,r,g,b);
+			draw_line_clip(58,231,58,315,r,g,b);
+			draw_line_clip(58,315,71,335,r,g,b);
+			draw_line_clip(23,231,25,173,r,g,b);
+			draw_line_clip(25,173,82,173,r,g,b);
+			draw_line_clip(82,173,95,173,r,g,b);
+			draw_line_clip(95,173,95,199,r,g,b);
+			draw_line_clip(95,199,102,202,r,g,b);
+			draw_line_clip(102,202,103,231,r,g,b);
+
+			draw_line_clip(106,83,107,28,r,g,b);
+			draw_line_clip(107,28,266,33,r,g,b);
+			draw_line_clip(82,173,82,83,r,g,b);
+			draw_line_clip(82,83,266,83,r,g,b);
+			draw_line_clip(82,118,266,118,r,g,b);
+			draw_line_clip(82,160,266,160,r,g,b);
+			draw_line_clip(25,173,28,46,r,g,b);
+			draw_line_clip(28,46,51,28,r,g,b);
+			draw_line_clip(51,28,80,28,r,g,b);
+			draw_line_clip(80,28,80,16,r,g,b);
+			draw_line_clip(80,16,48,16,r,g,b);
+			draw_line_clip(48,16,21,50,r,g,b);
+			draw_line_clip(21,50,8,280,r,g,b);
+		}
+
+
+		void draw_minimap(int x, int y, int xsize, int ysize) {
+			int oldvxsize = vxsize;
+			int oldvysize = vysize;
+			int oldvxoffset = vxoffset;
+			int oldvyoffset = vyoffset;
+
+			int oldwxsize = wxsize;
+			int oldwysize = wysize;
+			int oldwxoffset = wxoffset;
+			int oldwyoffset = wyoffset;
+
+			vxsize = xsize;
+			vysize = ysize;
+			vxoffset = x;
+			vyoffset = y;
+			wxsize = IMG_X_SIZE;
+			wysize = IMG_Y_SIZE;
+			wxoffset = 0;
+			wyoffset = 0;
+			draw_view();
+			draw_window(oldwxoffset, oldwyoffset, oldwxsize, oldwysize);
+			draw_street_clip(255,255,255);
+			draw_bangunan_clip(200,200,200);
+
+			wxsize = oldwxsize;
+			wysize = oldwysize;
+			vxsize = oldvxsize;
+			vysize = oldvysize;
+
+			wxoffset = oldwxoffset;
+			wyoffset = oldwyoffset;
+			vxoffset = oldvxoffset;
+			vyoffset = oldvyoffset;
+		}
+
+		void draw_window(int wxoffset, int wyoffset, int wxsize, int wysize) {
+			draw_line_clip(wxoffset, wyoffset, wxoffset + wxsize, wyoffset, 0, 100, 0);
+			draw_line_clip(wxoffset+wxsize, wyoffset, wxoffset+wxsize, wyoffset+wysize, 0,100,0);
+			draw_line_clip(wxoffset+wxsize, wyoffset+wysize, wxoffset, wyoffset+wysize, 0,100,0);
+			draw_line_clip(wxoffset, wyoffset+wysize, wxoffset ,wyoffset, 0,100,0);
 		}
 };
 
