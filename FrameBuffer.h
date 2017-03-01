@@ -1008,7 +1008,6 @@ class FrameBuffer {
 			draw_line(104,149,111,149,255,255,255);
 			draw_line(111,149,111,140,255,255,255);
 			draw_line(111,140,104,140,255,255,255);
-			
 
 
 
@@ -1017,7 +1016,8 @@ class FrameBuffer {
 
 
 
-			
+
+
 /*
 			string testline;
 		    string word[1500];
@@ -1161,7 +1161,63 @@ class FrameBuffer {
 		}
 
 		void draw_bangunan_clip(int r, int g, int b){
+			//kelompok 2
+			//coklat
+			draw_line_clip(231,394,250,405,r,g,b);
+			draw_line_clip(250,405,244,415,r,g,b);
+			draw_line_clip(244,415,223,415,r,g,b);
+			draw_line_clip(223,415,220,413,r,g,b);
+			draw_line_clip(220,413,231,394,r,g,b);
 
+			//ungu
+			draw_line_clip(173,343,172,349,r,g,b);
+			draw_line_clip(172,349,153,349,r,g,b);
+			draw_line_clip(153,349,153,343,r,g,b);
+			draw_line_clip(153,343,173,343,r,g,b);
+
+			//coklat
+			draw_line_clip(210,343,210,349,r,g,b);
+			draw_line_clip(210,349,190,349,r,g,b);
+			draw_line_clip(190,349,190,343,r,g,b);
+			draw_line_clip(190,343,210,343,r,g,b);
+
+			//Albar
+			draw_line_clip(149,311,149,315,r,g,b);
+			draw_line_clip(149,315,155,315,r,g,b);
+			draw_line_clip(155,315,155,317,r,g,b);
+			draw_line_clip(155,317,158,317,r,g,b);
+			draw_line_clip(158,317,151,326,r,g,b);
+			draw_line_clip(151,326,151,335,r,g,b);
+			draw_line_clip(151,335,122,335,r,g,b);
+			draw_line_clip(122,335,122,328,r,g,b);
+			draw_line_clip(122,328,115,328,r,g,b);
+			draw_line_clip(115,328,115,317,r,g,b);
+			draw_line_clip(115,317,119,317,r,g,b);
+			draw_line_clip(119,317,119,314,r,g,b);
+			draw_line_clip(119,314,125,315,r,g,b);
+			draw_line_clip(125,315,125,311,r,g,b);
+			draw_line_clip(125,311,149,311,r,g,b);
+
+			//Altim
+			draw_line_clip(237,311,237,315,r,g,b);
+			draw_line_clip(237,315,242,315,r,g,b);
+			draw_line_clip(242,315,242,317,r,g,b);
+			draw_line_clip(242,317,247,317,r,g,b);
+			draw_line_clip(247,317,247,327,r,g,b);
+			draw_line_clip(247,327,240,327,r,g,b);
+			draw_line_clip(240,327,240,335,r,g,b);
+			draw_line_clip(240,335,211,335,r,g,b);
+			draw_line_clip(211,335,211,327,r,g,b);
+			draw_line_clip(211,327,204,327,r,g,b);
+			draw_line_clip(204,327,204,318,r,g,b);
+			draw_line_clip(204,318,208,318,r,g,b);
+			draw_line_clip(208,318,208,315,r,g,b);
+			draw_line_clip(208,315,213,315,r,g,b);
+			draw_line_clip(213,315,213,311,r,g,b);
+			draw_line_clip(213,311,237,311,r,g,b);
+
+			//kelompok3
+			//HMTL
 			draw_line_clip(234,235,244,235,r,g,b);
 			draw_line_clip(244,235,244,238,r,g,b);
 			draw_line_clip(244,238,302,238,r,g,b);
@@ -1475,6 +1531,211 @@ class FrameBuffer {
 			draw_line_clip(258,71,258,77,r,g,b);
 			draw_line_clip(258,77,231,77,r,g,b);
 			draw_line_clip(231,77,231,33,r,g,b);
+
+			//Gedung P2T
+			//Halaman
+			draw_line_clip(267,12,267,46,r,g,b);
+			draw_line_clip(267,46,307,49,r,g,b);
+			draw_line_clip(307,49,307,12,r,g,b);
+			draw_line_clip(307,12,267,12,r,g,b);
+
+			///Gedung kiri atas
+			draw_line_clip(271,19,271,23,r,g,b);
+			draw_line_clip(271,23,279,23,r,g,b);
+			draw_line_clip(279,23,279,19,r,g,b);
+			draw_line_clip(279,19,271,19,r,g,b);
+
+			//Gedung kiri bawah
+			draw_line_clip(270,26,280,26,r,g,b);
+			draw_line_clip(280,26,280,45,r,g,b);
+			draw_line_clip(280,45,270,44,r,g,b);
+			draw_line_clip(270,44,270,26,r,g,b);
+
+			//Gedung kanan atas
+			draw_line_clip(283,13,302,13,r,g,b);
+			draw_line_clip(302,13,302,24,r,g,b);
+			draw_line_clip(302,24,283,23,r,g,b);
+			draw_line_clip(283,23,283,13,r,g,b);
+
+			//Gedung kanan bawah
+			draw_line_clip(285,25,298,26,r,g,b);
+			draw_line_clip(298,26,298,46,r,g,b);
+			draw_line_clip(298,46,284,45,r,g,b);
+			draw_line_clip(284,45,285,25,r,g,b);
+
+			//Labtek 4
+			// Halaman kiri
+			draw_line_clip(267,85,277,68,r,g,b);
+			draw_line_clip(277,68,277,76,r,g,b);
+			draw_line_clip(277,76,289,69,r,g,b);
+			draw_line_clip(289,69,289,67,r,g,b);
+			draw_line_clip(289,67,320,69,r,g,b);
+			draw_line_clip(320,69,319,75,r,g,b);
+			draw_line_clip(319,75,305,75,r,g,b);
+			draw_line_clip(305,75,305,73,r,g,b);
+			draw_line_clip(305,73,293,73,r,g,b);
+			draw_line_clip(293,73,292,82,r,g,b);
+			draw_line_clip(292,82,278,82,r,g,b);
+			draw_line_clip(278,82,267,91,r,g,b);
+			draw_line_clip(267,91,267,85,r,g,b);
+
+			//Gedung kecil belakang
+			draw_line_clip(330,71,330,76,r,g,b);
+			draw_line_clip(330,76,339,76,r,g,b);
+			draw_line_clip(339,76,339,71,r,g,b);
+			draw_line_clip(339,71,330,71,r,g,b);
+
+			//Kimia
+			//Gedung bawah
+			draw_line_clip(326,154,326,141,r,g,b);
+			draw_line_clip(326,141,273,136,r,g,b);
+			draw_line_clip(273,136,272,149,r,g,b);
+			draw_line_clip(272,149,326,154,r,g,b);
+
+			//Gedung atas
+			draw_line_clip(275,114,274,119,r,g,b);
+			draw_line_clip(274,119,321,134,r,g,b);
+			draw_line_clip(321,134,322,118,r,g,b);
+			draw_line_clip(322,118,275,114,r,g,b);
+
+			//BscB
+			//Gedung Panjang
+			draw_line_clip(274,102,274,109,r,g,b);
+			draw_line_clip(274,109,334,114,r,g,b);
+			draw_line_clip(334,114,337,84,r,g,b);
+			draw_line_clip(337,84,330,83,r,g,b);
+			draw_line_clip(330,83,328,106,r,g,b);
+			draw_line_clip(328,106,274,102,r,g,b);
+
+			//Gedung dalam
+			//yang besar
+			draw_line_clip(309,94,309,104,r,g,b);
+			draw_line_clip(309,104,329,96,r,g,b);
+			draw_line_clip(329,96,328,106,r,g,b);
+			draw_line_clip(328,106,309,94,r,g,b);
+
+			//yang kecil
+			draw_line_clip(303,95,303,102,r,g,b);
+			draw_line_clip(303,102,309,102,r,g,b);
+			draw_line_clip(309,102,309,96,r,g,b);
+			draw_line_clip(309,96,303,95,r,g,b);
+
+			//FTTM
+			draw_line_clip(291,98,303,99,r,g,b);
+			draw_line_clip(303,99,305,73,r,g,b);
+			draw_line_clip(305,73,293,72,r,g,b);
+			draw_line_clip(293,72,291,98,r,g,b);
+
+			//Sebelah FTTM
+			//Horizontal
+			draw_line_clip(305,75,305,78,r,g,b);
+			draw_line_clip(305,78,319,79,r,g,b);
+			draw_line_clip(319,79,319,76,r,g,b);
+			draw_line_clip(319,76,305,75,r,g,b);
+
+			//vertikal
+			draw_line_clip(320,70,318,95,r,g,b);
+			draw_line_clip(318,95,324,70,r,g,b);
+			draw_line_clip(324,70,322,95,r,g,b);
+			draw_line_clip(322,95,320,70,r,g,b);
+
+			//kelompok 5
+			draw_line_clip(227,301,227,290,r,g,b);
+			draw_line_clip(227,290,213,290,r,g,b);
+			draw_line_clip(213,290,213,301,r,g,b);
+			draw_line_clip(213,301,227,301,r,g,b);
+
+			draw_line_clip(187,285,219,285,r,g,b);
+			draw_line_clip(219,285,219,258,r,g,b);
+			draw_line_clip(219,258,187,258,r,g,b);
+			draw_line_clip(187,258,187,285,r,g,b);
+
+			draw_line_clip(180,230,234,230,r,g,b);
+			draw_line_clip(234,230,234,234,r,g,b);
+			draw_line_clip(234,234,184,234,r,g,b);
+			draw_line_clip(184,234,184,288,r,g,b);
+			draw_line_clip(184,288,228,288,r,g,b);
+			draw_line_clip(228,288,228,275,r,g,b);
+			draw_line_clip(228,275,226,275,r,g,b);
+			draw_line_clip(226,275,226,260,r,g,b);
+			draw_line_clip(226,260,228,260,r,g,b);
+			draw_line_clip(228,260,228,258,r,g,b);
+			draw_line_clip(228,258,231,258,r,g,b);
+			draw_line_clip(231,258,180,230,r,g,b);
+
+			//kelompok 8
+			draw_line_clip(40,282,51,282,r,g,b);
+			draw_line_clip(51,282,51,308,r,g,b);
+			draw_line_clip(51,308,40,308,r,g,b);
+			draw_line_clip(40,308,40,282,r,g,b);
+
+			draw_line_clip(54,277,27,277,r,g,b);
+			draw_line_clip(27,277,27,270,r,g,b);
+			draw_line_clip(27,270,54,270,r,g,b);
+			draw_line_clip(54,270,54,277,r,g,b);
+
+			draw_line_clip(31,277,31,280,r,g,b);
+			draw_line_clip(31,280,28,280,r,g,b);
+			draw_line_clip(28,280,28,277,r,g,b);
+			draw_line_clip(28,277,31,277,r,g,b);
+
+			draw_line_clip(26,259,26,249,r,g,b);
+			draw_line_clip(26,249,56,249,r,g,b);
+			draw_line_clip(56,249,56,259,r,g,b);
+			draw_line_clip(56,259,26,259,r,g,b);
+
+			draw_line_clip(33,249,33,235,r,g,b);
+			draw_line_clip(33,235,56,235,r,g,b);
+			draw_line_clip(56,235,56,249,r,g,b);
+			draw_line_clip(56,249,33,249,r,g,b);
+
+			draw_line_clip(36,259,30,265,r,g,b);
+			draw_line_clip(30,265,36,269,r,g,b);
+			draw_line_clip(36,269,43,265,r,g,b);
+			draw_line_clip(43,265,36,259,r,g,b);
+
+			//kelompok 10
+			draw_line_clip(105,217,105,200,r,g,b);
+			draw_line_clip(105,200,174,200,r,g,b);
+			draw_line_clip(174,200,174,217,r,g,b);
+			draw_line_clip(174,217,105,217,r,g,b);
+
+			draw_line_clip(185,217,185,200,r,g,b);
+			draw_line_clip(185,200,255,200,r,g,b);
+			draw_line_clip(255,200,255,217,r,g,b);
+			draw_line_clip(255,217,185,217,r,g,b);
+
+			draw_line_clip(105,190,105,173,r,g,b);
+			draw_line_clip(105,173,174,173,r,g,b);
+			draw_line_clip(174,173,174,190,r,g,b);
+			draw_line_clip(174,190,105,190,r,g,b);
+
+			draw_line_clip(185,190,185,173,r,g,b);
+			draw_line_clip(185,173,255,173,r,g,b);
+			draw_line_clip(255,173,255,190,r,g,b);
+			draw_line_clip(255,190,185,190,r,g,b);
+
+			//kelompok 12
+			draw_line_clip(88,94,124,94,r,g,b);
+			draw_line_clip(124,94,121,114,r,g,b);
+			draw_line_clip(121,114,88,114,r,g,b);
+			draw_line_clip(88,114,88,94,r,g,b);
+
+			draw_line_clip(88,120,124,120,r,g,b);
+			draw_line_clip(124,120,124,140,r,g,b);
+			draw_line_clip(124,140,88,140,r,g,b);
+			draw_line_clip(88,140,88,120,r,g,b);
+
+			draw_line_clip(88,140,88,149,r,g,b);
+			draw_line_clip(88,149,95,149,r,g,b);
+			draw_line_clip(95,149,95,140,r,g,b);
+			draw_line_clip(95,140,88,140,r,g,b);
+
+			draw_line_clip(104,140,104,149,r,g,b);
+			draw_line_clip(104,149,111,149,r,g,b);
+			draw_line_clip(111,149,111,140,r,g,b);
+			draw_line_clip(111,140,104,140,r,g,b);
+
 		}
 
 		void draw_street_clip(int r, int g, int b){
@@ -1542,6 +1803,22 @@ class FrameBuffer {
 			draw_line_clip(21,50,8,280,r,g,b);
 		}
 
+		void pohon(int x, int y,int r, int g, int b) {
+			draw_line_clip(x-6,y,x,y-3,r,g,b);
+			draw_line_clip(x-6,y,x,y+3,r,g,b);
+			draw_line_clip(x,y+3,x,y-3,r,g,b);
+		}
+
+		void draw_pohon_clip(int r, int g, int b) {
+			pohon(125,241,r,g,b);
+			pohon(128,241,r,g,b);
+			pohon(128,234,r,g,b);
+			pohon(173,234,r,g,b);
+			pohon(173,234,r,g,b);
+			pohon(175,235,r,g,b);
+			pohon(175,287,r,g,b);
+			pohon(171,287,r,g,b);
+		}
 
 		void draw_minimap(int x, int y, int xsize, int ysize) {
 			int oldvxsize = vxsize;
@@ -1566,6 +1843,7 @@ class FrameBuffer {
 			draw_window(oldwxoffset, oldwyoffset, oldwxsize, oldwysize);
 			draw_street_clip(255,255,255);
 			draw_bangunan_clip(200,200,200);
+			draw_pohon_clip(0,100,0);
 
 			wxsize = oldwxsize;
 			wysize = oldwysize;
