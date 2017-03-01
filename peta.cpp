@@ -80,7 +80,7 @@ void redraw(bool *toggle_table) {
 		fb->draw_street_clip(128,128,128);
 	}
 	if (toggle_table[POHON]) {
-		//nothing yet
+		fb->draw_pohon_clip(0,255,0);
 	}
 	fb->draw_minimap(MINIMAP_X_LOC,MINIMAP_Y_LOC,IMG_X_SIZE / 2, IMG_Y_SIZE / 2);
 }
@@ -95,7 +95,7 @@ void delete_all(bool *toggle_table) {
 		fb->draw_street_clip(0,0,0);
 	}
 	if (toggle_table[POHON]) {
-		//nothing yet
+		fb->draw_pohon_clip(0,0,0);
 	}
 	fb->erase_minimap(MINIMAP_X_LOC,MINIMAP_Y_LOC,IMG_X_SIZE / 2, IMG_Y_SIZE / 2);
 }
@@ -220,6 +220,7 @@ int main(){
 	fb->draw_view();
 	fb->draw_bangunan_clip(0,0,255);
 	fb->draw_street_clip(128,128,128);
+	fb->draw_pohon_clip(0,255,0);
 	fb->draw_minimap(MINIMAP_X_LOC,MINIMAP_Y_LOC,IMG_X_SIZE / 2, IMG_Y_SIZE / 2);
 	// fb->draw_bangunan();
 	// fb->draw_street();

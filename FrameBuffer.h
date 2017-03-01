@@ -1009,14 +1009,53 @@ class FrameBuffer {
 			draw_line(111,149,111,140,255,255,255);
 			draw_line(111,140,104,140,255,255,255);
 
+			//kelompok 11
+			//oktagon
+			draw_line(157,88,143,101,255,255,255);
+			draw_line(143,101,157,115,255,255,255);
+			draw_line(157,115,173,101,255,255,255);
+			draw_line(173,101,157,88,255,255,255);
+
+			//tvst
+			draw_line(157,120,143,133,255,255,255);
+			draw_line(143,133,157,147,255,255,255);
+			draw_line(157,147,173,133,255,255,255);
+			draw_line(173,133,157,120,255,255,255);
+
+			//Lab Fidas
+			draw_line(189,105,189,97,255,255,255);
+			draw_line(189,97,223,97,255,255,255);
+			draw_line(223,97,223,113,255,255,255);
+			draw_line(223,113,196,113,255,255,255);
+			draw_line(196,113,189,105,255,255,255);
+
+			//Lab
+			draw_line(196,122,223,122,255,255,255);
+			draw_line(223,122,223,138,255,255,255);
+			draw_line(223,138,191,135,255,255,255);
+			draw_line(191,135,188,133,255,255,255);
+			draw_line(188,133,196,122,255,255,255);
+
+			draw_line(226,94,249,94,255,255,255);
+			draw_line(249,94,249,139,255,255,255);
+			draw_line(249,139,226,139,255,255,255);
+			draw_line(226,139,226,94,255,255,255);
 
 
+			draw_line(226,139,249,139,255,255,255);
+			draw_line(249,139,249,158,255,255,255);
+			draw_line(249,158,226,158,255,255,255);
+			draw_line(226,158,226,139,255,255,255);
 
-
-
-
-
-
+			//GKU BARAT
+			draw_line(64,177,75,176,255,255,255);
+			draw_line(75,176,82,184,255,255,255);
+			draw_line(82,184,82,195,255,255,255);
+			draw_line(82,195,74,202,255,255,255);
+			draw_line(74,202,64,203,255,255,255);
+			draw_line(64,203,55,195,255,255,255);
+			draw_line(55,195,55,184,255,255,255);
+			draw_line(55,184,64,177,255,255,255);
 
 /*
 			string testline;
@@ -1161,7 +1200,6 @@ class FrameBuffer {
 		}
 
 		void draw_bangunan_clip(int r, int g, int b){
-			//kelompok 2
 			//coklat
 			draw_line_clip(231,394,250,405,r,g,b);
 			draw_line_clip(250,405,244,415,r,g,b);
@@ -1736,6 +1774,53 @@ class FrameBuffer {
 			draw_line_clip(111,149,111,140,r,g,b);
 			draw_line_clip(111,140,104,140,r,g,b);
 
+			//kelompok 11
+			//oktagon
+			draw_line_clip(157,88,143,101,r,g,b);
+			draw_line_clip(143,101,157,115,r,g,b);
+			draw_line_clip(157,115,173,101,r,g,b);
+			draw_line_clip(173,101,157,88,r,g,b);
+
+			//tvst
+			draw_line_clip(157,120,143,133,r,g,b);
+			draw_line_clip(143,133,157,147,r,g,b);
+			draw_line_clip(157,147,173,133,r,g,b);
+			draw_line_clip(173,133,157,120,r,g,b);
+
+			//Lab Fidas
+			draw_line_clip(189,105,189,97,r,g,b);
+			draw_line_clip(189,97,223,97,r,g,b);
+			draw_line_clip(223,97,223,113,r,g,b);
+			draw_line_clip(223,113,196,113,r,g,b);
+			draw_line_clip(196,113,189,105,r,g,b);
+
+			//Lab
+			draw_line_clip(196,122,223,122,r,g,b);
+			draw_line_clip(223,122,223,138,r,g,b);
+			draw_line_clip(223,138,191,135,r,g,b);
+			draw_line_clip(191,135,188,133,r,g,b);
+			draw_line_clip(188,133,196,122,r,g,b);
+
+			draw_line_clip(226,94,249,94,r,g,b);
+			draw_line_clip(249,94,249,139,r,g,b);
+			draw_line_clip(249,139,226,139,r,g,b);
+			draw_line_clip(226,139,226,94,r,g,b);
+
+
+			draw_line_clip(226,139,249,139,r,g,b);
+			draw_line_clip(249,139,249,158,r,g,b);
+			draw_line_clip(249,158,226,158,r,g,b);
+			draw_line_clip(226,158,226,139,r,g,b);
+
+			//GKU BARAT
+			draw_line_clip(64,177,75,176,r,g,b);
+			draw_line_clip(75,176,82,184,r,g,b);
+			draw_line_clip(82,184,82,195,r,g,b);
+			draw_line_clip(82,195,74,202,r,g,b);
+			draw_line_clip(74,202,64,203,r,g,b);
+			draw_line_clip(64,203,55,195,r,g,b);
+			draw_line_clip(55,195,55,184,r,g,b);
+			draw_line_clip(55,184,64,177,r,g,b);
 		}
 
 		void draw_street_clip(int r, int g, int b){
@@ -1804,9 +1889,9 @@ class FrameBuffer {
 		}
 
 		void pohon(int x, int y,int r, int g, int b) {
-			draw_line_clip(x-6,y,x,y-3,r,g,b);
-			draw_line_clip(x-6,y,x,y+3,r,g,b);
-			draw_line_clip(x,y+3,x,y-3,r,g,b);
+			draw_line_clip(x,y-6,x-3,y,r,g,b);
+			draw_line_clip(x,y-6,x+3,y,r,g,b);
+			draw_line_clip(x-3,y,x+3,y,r,g,b);
 		}
 
 		void draw_pohon_clip(int r, int g, int b) {
@@ -1818,7 +1903,51 @@ class FrameBuffer {
 			pohon(175,235,r,g,b);
 			pohon(175,287,r,g,b);
 			pohon(171,287,r,g,b);
+			pohon(55,387,r,g,b);
+			pohon(61,387,r,g,b);
+			pohon(67,387,r,g,b);
+			pohon(73,387,r,g,b);
+			pohon(79,387,r,g,b);
+			pohon(55,383,r,g,b);
+			pohon(61,383,r,g,b);
+			pohon(67,383,r,g,b);
+			pohon(73,383,r,g,b);
+			pohon(79,383,r,g,b);
+			pohon(81,383,r,g,b);
+			pohon(82,383,r,g,b);
+			pohon(85,383,r,g,b);
+			pohon(56,375,r,g,b);
+			pohon(63,375,r,g,b);
+			pohon(69,375,r,g,b);
+			pohon(78,375,r,g,b);
+			pohon(55,363,r,g,b);
+			pohon(57,375,r,g,b);
+			pohon(257,375,r,g,b);
+			pohon(259,373,r,g,b);
+			pohon(260,379,r,g,b);
+			pohon(263,367,r,g,b);
+			pohon(267,365,r,g,b);
+			pohon(250,350,r,g,b);
+			pohon(252,342,r,g,b);
+			pohon(261,351,r,g,b);
+			pohon(242,354,r,g,b);
+			pohon(253,343,r,g,b);
+			pohon(269,333,r,g,b);
+			pohon(237,340,r,g,b);
+			pohon(249,345,r,g,b);
+			pohon(244,347,r,g,b);
+			pohon(232,352,r,g,b);
+			pohon(230,349,r,g,b);
+			pohon(236,337,r,g,b);
+			pohon(235,338,r,g,b);
+			pohon(239,342,r,g,b);
+			pohon(220,350,r,g,b);
+			pohon(223,360,r,g,b);
+			pohon(227,347,r,g,b);
+			pohon(231,362,r,g,b);
+			pohon(220,361,r,g,b);
 		}
+
 
 		void draw_minimap(int x, int y, int xsize, int ysize) {
 			int oldvxsize = vxsize;
@@ -1886,7 +2015,7 @@ class FrameBuffer {
 			erase_window(oldwxoffset, oldwyoffset, oldwxsize, oldwysize);
 			draw_street_clip(0,0,0);
 			draw_bangunan_clip(0,0,0);
-
+			draw_pohon_clip(0,0,0);
 			wxsize = oldwxsize;
 			wysize = oldwysize;
 			vxsize = oldvxsize;
